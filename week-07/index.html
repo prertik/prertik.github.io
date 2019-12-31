@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <meta name="generator" content="Hugo 0.56.3" />
+  <meta name="generator" content="Hugo 0.62.0" />
   <link rel="canonical" href="https://prertik.github.io/week-07/">
 
   
@@ -50,6 +50,8 @@
       
         <li><a href="/about/about/">About</a></li>
       
+        <li><a href="/nsfw/">NSFW</a></li>
+      
         <li><a href="/tags/">Tags</a></li>
       
         <li><a href="/index.xml">RSS</a></li>
@@ -83,41 +85,30 @@
 
 
 <p>Hello everyone.</p>
-
 <p>This week there was lots of progress in builtin rebase. Lots of thanks to <a href="https://github.com/dscho">Johannes Schindelin</a>,
-without him the patch wouldn&rsquo;t be in current state. Rather
+without him the patch wouldn't be in current state. Rather
 than work on emulating smaller functions from <code>git-rebase.sh</code>
 like I explained previously in my blog post. Me and <a href="https://github.com/dscho">Dscho</a> went a lot farther and implemented a super simple rebase. You can find the code <a href="https://github.com/git/git/pull/505">here</a>.
-If you&rsquo;re feeling adventurous get the code and run some rebase tasks.
+If you're feeling adventurous get the code and run some rebase tasks.
 Maybe try this:</p>
-
-<pre><code class="language-shell">./git --exec-path=&quot;$PWD&quot; -c rebase.usebuiltin=true rebase HEAD^
-</code></pre>
-
-<p>Or if you want to use your terminal more maybe try this?</p>
-
-<pre><code class="language-shell">mkdir 123
-git init 123
-cd 123
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">./git --exec-path<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$PWD<span style="color:#e6db74">&#34;</span> -c rebase.usebuiltin<span style="color:#f92672">=</span>true rebase HEAD^
+</code></pre></div><p>Or if you want to use your terminal more maybe try this?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mkdir <span style="color:#ae81ff">123</span>
+git init <span style="color:#ae81ff">123</span>
+cd <span style="color:#ae81ff">123</span>
 touch a1
 git add a1
 git commit -m a1 a1
-for i in 2 3 4; do touch a$i; git add a$i; git commit -m a$i a$i; done
+<span style="color:#66d9ef">for</span> i in <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> 4; <span style="color:#66d9ef">do</span> touch a$i; git add a$i; git commit -m a$i a$i; <span style="color:#66d9ef">done</span>
 cd ..
-./git --exec-path=$PWD -C 123 -c rebase.usebuiltin=true rebase HEAD~
-</code></pre>
-
-<p>Did you get a message saying <code>warning: TODO</code>? Well it&rsquo;s because the <code>apply_autostash()</code> hasn&rsquo;t been implemented yet&hellip;
+./git --exec-path<span style="color:#f92672">=</span>$PWD -C <span style="color:#ae81ff">123</span> -c rebase.usebuiltin<span style="color:#f92672">=</span>true rebase HEAD~
+</code></pre></div><p>Did you get a message saying <code>warning: TODO</code>? Well it's because the <code>apply_autostash()</code> hasn't been implemented yet&hellip;
 Modifying this and making it run will be handled in later patch.</p>
-
-<p>Well if you try <code>echo $?</code> it returns 0 which is a proof of saying that our code works till that point i.e. until the <code>apply_autostash()</code>. Still lots of environment variables need to be set. There&rsquo;s still _a_lot_ to do as we are moving steadily towards a working builtin rebase. The full rebase as promised is very hard to reach as it requires lots and lots of configurations and coding. Time will tell how much I can complete in this GSoC time period and with every week the code is somewhat progressing towards something awesome. :-)</p>
-
-<p>There are lots of awesome things going on here which I&rsquo;ll explain in the blog post where I&rsquo;ll breakdown every functions and total internal workings of my code of builtin rebase.</p>
-
+<p>Well if you try <code>echo $?</code> it returns 0 which is a proof of saying that our code works till that point i.e. until the <code>apply_autostash()</code>. Still lots of environment variables need to be set. There's still _a_lot_ to do as we are moving steadily towards a working builtin rebase. The full rebase as promised is very hard to reach as it requires lots and lots of configurations and coding. Time will tell how much I can complete in this GSoC time period and with every week the code is somewhat progressing towards something awesome. :-)</p>
+<p>There are lots of awesome things going on here which I'll explain in the blog post where I'll breakdown every functions and total internal workings of my code of builtin rebase.</p>
 <p>Oh and one important thing if you want to have a collaborative coding session but are waiting for some positive review to try <a href="https://code.visualstudio.com/blogs/2017/11/15/live-share">Visual Studio Live Share</a>.
-You have mine. It works nicely. Though it&rsquo;s still in preview and lots of improvements are needed, it&rsquo;s very usable and get you more productive.</p>
-
-<p>That&rsquo;s it for this week. Stay tuned.</p>
+You have mine. It works nicely. Though it's still in preview and lots of improvements are needed, it's very usable and get you more productive.</p>
+<p>That's it for this week. Stay tuned.</p>
 
   
 

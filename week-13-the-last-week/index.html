@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <meta name="generator" content="Hugo 0.56.3" />
+  <meta name="generator" content="Hugo 0.62.0" />
   <link rel="canonical" href="https://prertik.github.io/week-13-the-last-week/">
 
   
@@ -50,6 +50,8 @@
       
         <li><a href="/about/about/">About</a></li>
       
+        <li><a href="/nsfw/">NSFW</a></li>
+      
         <li><a href="/tags/">Tags</a></li>
       
         <li><a href="/index.xml">RSS</a></li>
@@ -83,14 +85,10 @@
 
 
 <p>Hello everyone, Sorry for the late post as you know I have been very busy lately giving finishing touches to the <code>builtin/rebase.c</code>. Yes, you read it right. We have a complete <code>rebase.c</code>, it has some nits still, as some tests particularly <code>t5520</code> and <code>t7406</code> are not passing but the good news is, the tests <code>t34*</code> are passing. Yipee!</p>
-
-<p>Regarding the status on the mailing list, after some regression tests suggested by <a href="https://github.com/dscho">@dscho</a>, we found out that certain key changes need to be done to <a href="https://public-inbox.org/git/CAOZc8M_FJmMCEB1MkJrBRpLiFjy8OTEg_MxoNQTh5-brHxR-=A@mail.gmail.com/">v5</a>, so I requested the Git maintainer to hold it for some time i.e. not merge from <code>pu</code> to <code>next</code>. The good news is I&rsquo;m getting <code>v6</code> ready as of now.</p>
-
-<p>So, I&rsquo;ll be submitting all the commits of my branch to mailing list as soon as it is ready. As, I have stated in my previous blogs, there are lots of commits with specific changes as @dscho instructed me to do, as it will be more make easier for review process and won&rsquo;t get stuck in review cycle for long.</p>
-
-<p>I&rsquo;ll conclude my GSoC blog series with this status of my work.</p>
-
-<p>And a quick reminder, a detailed part II of <a href="https://prertik.github.io/post/git-inside/">Git Inside® Part I: Don&rsquo;t Fear the Rebase</a> will be posted (after the complete GSoC period) for more detail read of my conversion from <code>git-rebase.sh</code> to <code>builtin/rebase.c</code>. I&rsquo;ll closely describe the underlyings of Git or Git Internals in that blog post. So, do keep on checking out this blog.</p>
+<p>Regarding the status on the mailing list, after some regression tests suggested by <a href="https://github.com/dscho">@dscho</a>, we found out that certain key changes need to be done to <a href="https://public-inbox.org/git/CAOZc8M_FJmMCEB1MkJrBRpLiFjy8OTEg_MxoNQTh5-brHxR-=A@mail.gmail.com/">v5</a>, so I requested the Git maintainer to hold it for some time i.e. not merge from <code>pu</code> to <code>next</code>. The good news is I'm getting <code>v6</code> ready as of now.</p>
+<p>So, I'll be submitting all the commits of my branch to mailing list as soon as it is ready. As, I have stated in my previous blogs, there are lots of commits with specific changes as @dscho instructed me to do, as it will be more make easier for review process and won't get stuck in review cycle for long.</p>
+<p>I'll conclude my GSoC blog series with this status of my work.</p>
+<p>And a quick reminder, a detailed part II of <a href="https://prertik.github.io/post/git-inside/">Git Inside® Part I: Don't Fear the Rebase</a> will be posted (after the complete GSoC period) for more detail read of my conversion from <code>git-rebase.sh</code> to <code>builtin/rebase.c</code>. I'll closely describe the underlyings of Git or Git Internals in that blog post. So, do keep on checking out this blog.</p>
 
   
 

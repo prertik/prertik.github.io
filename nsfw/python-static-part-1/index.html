@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="generator" content="Hugo 0.62.0" />
+  <link rel="canonical" href="https://prertik.github.io/nsfw/python-static-part-1/">
+
+  
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" type="text/css" href="https://prertik.github.io/css/paper.css">
+
+  
+  
+  <link rel="stylesheet" type="text/css" href="https://prertik.github.io/css/custom.css">
+
+  
+  
+  <title>Static Typing on a data-intensive project - Part I | (recur code)</title>
+</head>
+  <body>
+    <div class="container paper">
+      <nav class="border split-nav">
+  <div class="nav-brand">
+    <h3><a href="/">(recur code)</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+    <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/about/about/">About</a></li>
+      
+        <li><a href="/nsfw/">NSFW</a></li>
+      
+        <li><a href="/tags/">Tags</a></li>
+      
+        <li><a href="/index.xml">RSS</a></li>
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+      <main>
+        
+
+<h1>Static Typing on a data-intensive project - Part I</h1>
+<p><strong>Disclaimer: These posts on <strong>NSFW</strong> do not reflect the thoughts of my employer
+and in no way an outcome of my employers.</strong></p>
+<h2 id="overture">Overture:</h2>
+<blockquote>
+<p>Every decade we get heavy buzz on type systems from proponents of different
+type systems. In the early days of Python and Ruby, the buzz was more in the
+favour of dynamic type systems but, the times they are a-changin&rsquo; or are they?</p>
+</blockquote>
+<p>There's been some buzz around python community for some years about type systems.
+And it sounds really fun and some great ideas have come from
+<a href="https://blogs.dropbox.com/tech/2019/09/our-journey-to-type-checking-4-million-lines-of-python/">dropbox</a>
+and
+<a href="https://www.techrepublic.com/article/the-creator-of-python-on-how-the-programming-language-is-learning-from-typescript/">GvR</a>.
+Yes, static typing really has several benefits as, pairing it with the editors and
+IDEs grant awesome constraint checking during development rather than the runtime.
+And, the way python started with adding optional <a href="https://www.python.org/dev/peps/pep-0484/">type hints</a>
+is a really good move. Lately <a href="http://mypy-lang.org/">other</a> <a href="https://github.com/microsoft/pyright">tools</a>
+which ride open the optional type hints of python have matured and are readily
+been used on lots of open-source projects and big python companies like: Dropbox,
+Microsoft.</p>
+<p>I have experience using mypy for static type checking a python project and
+it is delightful to use and it is <em>hellish</em> fast. Some parts of it has been
+written on C for performance as, we are <em>aware</em> of
+python's <a href="https://benchmarksgame-team.pages.debian.net/benchmarksgame/measurements/python3.html">performance issues</a>.
+Dropbox's post agrees:</p>
+<blockquote>
+<p>We did some profiling to find the most common of these “slow operations”. Armed with this data, we tried to either tweak mypyc to generate faster C code for these operations, or to rewrite the relevant Python code using faster operations (and sometimes there was nothing we could easily do). The latter was often much easier than implementing the same transformation automatically in the compiler. Longer term we’d like to automate many of these transformations, but at this point we were focused on making mypy faster with minimal effort, and at times we cut a few corners.</p>
+</blockquote>
+<p>The recent moves made by Python is inspired by the huge success of TypeScript.
+Ofcourse, there are people too in the JavaScript ecosystem who have been <a href="https://levelup.gitconnected.com/kyle-simpson-ive-forgotten-more-javascript-than-most-people-ever-learn-3bddc6c13e93">putting</a>
+<a href="https://twitter.com/dan_abramov/status/1082460320009015296?lang=en">off</a> TypeScript.
+Though, it is mentioned that having static typing on big projects is very important.</p>
+<h2 id="core">Core:</h2>
+<p>Now, let's fast forward to the reason for this blog.
+Python is a data modeling language. What I mean by this is, data can be modeled
+and manipulated in python than other languages and the Python data model describes
+APIs which are excellent and well suited for the data modeling scenarios. Though,
+this data model is often called Object Model but, let's stay on the data model
+faction for now.</p>
+<p>During my work on a medium code base (&gt; 50k lines) of python, we had twice thought
+of trying static typing and worked on type annotations and integrating <code>mypy</code> on
+the code base for extra static typing goodness. Of course, the recent buzz motivated
+us towards it rather than the real requirement of static typing as, though our
+project had been running for some time and solving issues on a domain for some
+time, we still hadn't reached the <strong>big corporate needs</strong> as we didn't feel
+static typing was our savior.</p>
+<p>So, we worked to add type annotations to our code-base, now we are providing
+solutions for education domain and we would receive <em>a lot</em> of information and
+have to solve problems my modeling our python code-base to the information we receive.
+The problem with information is information is sparse, we cannot force the
+information to be in a certain way but must have our programs model the information
+we receive. Secondly, information we receive is open ended i.e. it has no limit or
+boundary and these information keeps on flowing. The problem with having to program
+for information we cannot contain and not knowing the state of information is that
+we cannot model our program to handle the information the first time, as we keep
+on iterating stuffs and even, have to isolate information sources for our program.</p>
+<p>Let me give you an example, since, our project is of education domain, we keep
+on having issues with <code>id</code> of students as, some information source find it
+better to have id as string, some as integers, some as string with characters and
+so on. Now, suppose we add type hints to our python code base which models this
+information.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_student_name_from_id</span>(id: int) <span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span> str:
+  <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#e6db74">code to retrieve student name from the given id</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+  
+  <span style="color:#75715e"># handle all the logic</span>
+
+  <span style="color:#66d9ef">return</span> student_name
+</code></pre></div><p>Here, we are annotating with the information received that, the id is of <code>int</code>
+type. Not caring for other type. Yes, changing this <code>int</code> to <code>str</code> for the
+information received is straight forward too, as this is a single function.
+But, will only a single function use this? In a good team of python programmers.
+Won't there be many methods or functions which use <code>id</code> for <em>whole lot of stuffs</em>.
+There can be code present like this, (and I can somewhat nod in it's existence)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">find_high_performing_students</span>(id: int, area: str) <span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span> str:
+  <span style="color:#75715e"># codes like these</span>
+  
+  <span style="color:#66d9ef">return</span> student_name
+</code></pre></div><p>Now, we have to remodel lots of stuffs when the information changes. Then, for
+each new source of information, we'll either have to isolate the program
+for that particular source or version our program for a source or the better
+way, to handle <code>id</code> which can be <code>int</code> or <code>str</code> and then, type cast it or
+parse it, depending upon the scenario. So, we'll have to think time and again we
+change information source on the possible solution for this, our <a href="https://en.wikipedia.org/wiki/Pointy-haired_Boss">pointy haired
+boss</a> won't be happy with this,
+as the boss is concerned with the graph and will sound the concern as why we
+are facing this issue time and again. Still I haven't discussed the third issue,
+i.e. string <code>id</code> with characters that will need some serious modeling.</p>
+<p>Then, again, there <a href="https://monkeytype.readthedocs.io/en/latest/index.html">are</a>
+<a href="https://github.com/dropbox/pyannotate">tools</a> for finding <code>type</code> which collects
+runtime types of function arguments and return values. Yes, these tools are
+great and are medicine for the right itch, but, the problem you see, here are,
+we're kind of depending on the dynamic characteristics of python to obtain that
+for us and our code is fine without us going the static <code>type</code> way, yes, having
+type systems will be much better but, even without it, we can survive and have
+gone so far.</p>
+<h2 id="underture">Underture:</h2>
+<p>In this <a href="https://www.youtube.com/watch?v=2V1FtfBDsLU&amp;t=37m07s">talk</a> by Rich
+Hickey, he questions the values of static types which is a perfectly valid
+question as, it is difficult using static or proper type systems when, we're
+modeling for the real world information which is unstructured and disoriented.</p>
+<p><a href="https://en.wikipedia.org/wiki/Steve_Yegge">Steve Yegge</a> has some amazing thoughts
+on his 2007 masterpiece <a href="https://steve-yegge.blogspot.com/2007/01/pinocchio-problem.html">The Pinocchio Problem</a>:</p>
+<blockquote>
+<p>A static type system has absolutely no runtime effect on a correct program: exactly the same machine code is generated regardless of how many types you chose to model. Case in point: C++ code is no more efficient than C code, and C lacks any but the most primitive type system. C isn't dynamically typed, but it's not particularly statically typed either. It's possible to write fast, robust programs in straight C. (Emacs and the Linux kernel are two fine examples.)</p>
+</blockquote>
+<blockquote>
+<p>Because most programmers nowadays prefer to build marionettes rather than scary real children, most programming is oriented towards building layer upon layer of hardware. C++ and Java programmers (and I'd be willing to bet, C# programmers) are by default baking every line of code they write into hardware by modeling everything in the type system up front.</p>
+</blockquote>
+<blockquote>
+<p>It's possible to write loosely-typed C++ and Java code using just arrays, linked lists, hashes, trees, and functions, but it's strongly deprecated (or at least frowned upon) in both camps, where strong typing and heavy-duty modeling have been growing increasingly fashionable for over a decade, to the detriment of productivity (which translates to software schedule) and flexibility (which also translates to schedule, via the ability to incorporate new features.</p>
+</blockquote>
+<p>Apologies for quoting Steve Yegge <em>a lot</em>. But, he is <em>really</em> really amazing programmer and writer.
+This blog post gets it right, even today.</p>
+<p>But, we have come a long way from there and have <em>a lot</em> of new languages with
+new ideas how to go around the issues imposed by type systems(both camp, I'm sorry)
+which I'll discuss on next post and model it in python to solve our particular
+problems.</p>
+<hr>
+<p>Thanks to <a href="https://github.com/RobusGauli">Robus Gauli</a> and <a href="https://github.com/rabingaire">Rabin Gaire</a> for good discussions on type systems.</p>
+
+  
+
+      </main>
+      
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'UA-108523579-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  </div>
+  </body>
+</html>

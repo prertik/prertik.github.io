@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Open-source on (recur code)</title>
@@ -17,7 +17,7 @@
       <pubDate>Tue, 01 May 2018 06:00:00 +0000</pubDate>
       
       <guid>https://prertik.github.io/git-an-unexpected-journey/</guid>
-      <description>This summer of &amp;lsquo;18, I&amp;rsquo;ll be working in Git. Git is an insanely awesome software. I still remember the day I learned about Git via Github and instantly got hooked. Git isn&amp;rsquo;t just an everyday software you encounter, just look at the documentation and observe closely how it works and you will understand the rock solid design. Enough with Git introduction already. There are too much posts describing Git already.</description>
+      <description>This summer of &amp;lsquo;18, I&#39;ll be working in Git. Git is an insanely awesome software. I still remember the day I learned about Git via Github and instantly got hooked. Git isn&#39;t just an everyday software you encounter, just look at the documentation and observe closely how it works and you will understand the rock solid design. Enough with Git introduction already. There are too much posts describing Git already.</description>
     </item>
     
   </channel>
