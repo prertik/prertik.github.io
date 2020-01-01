@@ -1,133 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Git Inside® Part I: Don&#39;t Fear the Rebase - (recur code)</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Git Inside® Part I: Don&#39;t Fear the Rebase" />
+<meta property="og:description" content="This is a two part blog. This is Part I of II." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://prertik.github.io/git-inside/" />
+<meta property="og:image" content="https://prertik.github.io/static/tenor.gif" />
+<meta property="og:image" content="https://prertik.github.io/static/applause.gif" />
+<meta property="article:published_time" content="2018-05-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-05-10T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://prertik.github.io/static/tenor.gif"/>
 
-  <meta name="generator" content="Hugo 0.62.0" />
-  <link rel="canonical" href="https://prertik.github.io/git-inside/">
+<meta name="twitter:title" content="Git Inside® Part I: Don&#39;t Fear the Rebase"/>
+<meta name="twitter:description" content="This is a two part blog. This is Part I of II."/>
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" media="screen" href="https://prertik.github.iocss/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://prertik.github.iocss/main.css" /><link rel="stylesheet" type="text/css" href="https://prertik.github.iocss/dark.css" media="(prefers-color-scheme: dark)" />
 
-  
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="theme-color" content="#ffffff">
-
-  <link rel="stylesheet" type="text/css" href="https://prertik.github.io/css/paper.css">
-
-  
-  
-  <link rel="stylesheet" type="text/css" href="https://prertik.github.io/css/custom.css">
-
-  
-  
-  <title>Git Inside® Part I: Don&#39;t Fear the Rebase | (recur code)</title>
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+		<script src="https://prertik.github.iojs/main.js"></script>
 </head>
-  <body>
-    <div class="container paper">
-      <nav class="border split-nav">
-  <div class="nav-brand">
-    <h3><a href="/">(recur code)</a></h3>
-  </div>
-  <div class="collapsible">
-    <input id="collapsible1" type="checkbox" name="collapsible1">
-    <button>
-    <label for="collapsible1">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-      </label>
-    </button>
-    <div class="collapsible-body">
-      <ul class="inline">
-      
-        <li><a href="/">Home</a></li>
-      
-        <li><a href="/about/about/">About</a></li>
-      
-        <li><a href="/nsfw/">NSFW</a></li>
-      
-        <li><a href="/tags/">Tags</a></li>
-      
-        <li><a href="/index.xml">RSS</a></li>
-      
-      </ul>
-    </div>
-  </div>
-</nav>
-      <main>
-        
 
-<h1 class="post-title">Git Inside® Part I: Don&#39;t Fear the Rebase</h1>
+<body>
+	<div class="container wrapper">
+		<div class="header">
+	
+		<div class="avatar">
+			<a href="https://prertik.github.io">
+				<img src="https://avatars0.githubusercontent.com/u/12194950?s=460&amp;v=4" alt="(recur code)" />
+			</a>
+		</div>
+	
+	<h1 class="site-title"><a href="https://prertik.github.io">(recur code)</a></h1>
+	<div class="site-description"><p>Ramblings on Coding and Life</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/prertik" title="Github"><i data-feather="github"></i></a></li><li><a href="/index.xml" title="RSS"><i data-feather="rss"></i></a></li></ul>
+		</nav>
+	</div>
 
-
-<strong>Publish date: </strong>May 10, 2018
-<br>
-
-  <strong>Tags: </strong>
-  
-    <a href="https://prertik.github.io/tags/git">git</a>
-  
-    <a href="https://prertik.github.io/tags/c">c</a>
-  
-    <a href="https://prertik.github.io/tags/shell">shell</a>
-  
-    <a href="https://prertik.github.io/tags/rebase">rebase</a>
-  
-    <a href="https://prertik.github.io/tags/merge">merge</a>
-  
-
-
-
-  
-
-<div class="child-borders">
-  <div class="toc border" aria-labelledby="toc-heading">
-    <h2 id="toc-heading">Table of contents</h2>
-    <ol>
-      
-        <li>
-          
-          
-          
-          
-          <a href="#interactive-rebase">
-            Interactive rebase
-          </a>
-        </li>
-      
-        <li>
-          
-          
-          
-          
-          <a href="#best-cases-for-rebase-use">
-            Best cases for Rebase use:
-          </a>
-        </li>
-      
-        <li>
-          
-          
-          
-          
-          <a href="#references">
-            References
-          </a>
-        </li>
-      
-    </ol>
-  </div>
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/about/about/">About</a>
+			</li>
+			
+			<li>
+				<a href="/nsfw/">NSFW</a>
+			</li>
+			
+			<li>
+				<a href="/tags/">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
 </div>
 
 
-
-<p>Ok, you've read my previous Git blog. There were nice feedback in the <a href="https://public-inbox.org/git/CAH5451mJO3Bgg9DST57fqcGGU-SPrcSECjXi0qOqeKsW0uaRzg@mail.gmail.com/">mailing list</a> and in emails and IRC. This week I did a close study on <code>git-rebase.</code>
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">10</span>
+							<span class="rest">May 2018</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">Git Inside® Part I: Don&#39;t Fear the Rebase</h1>
+				</div>
+			</div>
+					
+			<div class="markdown">
+				<p>Ok, you've read my previous Git blog. There were nice feedback in the <a href="https://public-inbox.org/git/CAH5451mJO3Bgg9DST57fqcGGU-SPrcSECjXi0qOqeKsW0uaRzg@mail.gmail.com/">mailing list</a> and in emails and IRC. This week I did a close study on <code>git-rebase.</code>
 There are _a_lot_of_posts_ about <a href="https://git-scm.com/docs/git-rebase"><code>git-rebase</code></a> which talk of benefits of rebase and some are negative towards rebase.
 By convention, it is understood that <code>rebase</code> is harder to understand for beginners that's why most will prefer merging. Even Github has merging of pull requests by default and to do rebase and merge you'll have to select it from the drop-down menu in the pull-requests section.</p>
 <p>Don't be afraid of rebase and after reading this, think of all the things you could have done if you had known rebase.</p>
@@ -139,95 +92,95 @@ By convention, it is understood that <code>rebase</code> is harder to understand
 <p>Ok, let's de-structure <code>git-rebase</code>. The general idea of rebase is that it is used to reapply commits on top of another base tip.
 Suppose, you're working in a tech company which has many Engineers and your choice of DVCS is Git. Now, to introduce new features, the developers will work in their own feature branch which has to be merged someday or rebased into the master.</p>
 <p>Suppose, the structure of the branch is:</p>
-<pre><code class="language-ascii" data-lang="ascii">M0---M1---M2 master
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">M0---M1---M2 master
   \
    \
     \
      B1---B2 feature
-</code></pre><p>Now, you're base branch is M0 and the developers based their feature branch B1 on it. But, since there is always development going on in a tech company. The master branch gradually develops to M1 and M2. While the feature branch also gradually develops to B2. The developers will find certain aspects have changed in the code base and they need to keep up with the master branch.
+</code></pre></div><p>Now, you're base branch is M0 and the developers based their feature branch B1 on it. But, since there is always development going on in a tech company. The master branch gradually develops to M1 and M2. While the feature branch also gradually develops to B2. The developers will find certain aspects have changed in the code base and they need to keep up with the master branch.
 Hence they will do,</p>
-<pre><code class="language-git" data-lang="git">git rebase master
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">git rebase master
 git rebase master feature
-</code></pre><p>The structure of the branch now changes to:</p>
-<pre><code class="language-ascii" data-lang="ascii">M0---M1---M2 master
+</code></pre></div><p>The structure of the branch now changes to:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">M0---M1---M2 master
            \
             \
              \
-              B1'---B2' feature
-</code></pre><p>Now, life goes on, hence, more code is written and branches keep on growing. Assume the structure after some time:</p>
-<pre><code class="language-ascii" data-lang="ascii">M0---M1---M2---M3---B3'---M4---M5---M6---M7 master
+              B1&#39;---B2&#39; feature
+</code></pre></div><p>Now, life goes on, hence, more code is written and branches keep on growing. Assume the structure after some time:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">M0---M1---M2---M3---B3&#39;---M4---M5---M6---M7 master
            \
             \
              \
-              B1'---B2'---B3---B4---B5 feature
-</code></pre><p>Now, again the developers will rebase. But, this time let's assume feature B3 was crucial for master and was already sent as a patch via mail and it was merged into master. While rebasing it will be automatically skipped.
+              B1&#39;---B2&#39;---B3---B4---B5 feature
+</code></pre></div><p>Now, again the developers will rebase. But, this time let's assume feature B3 was crucial for master and was already sent as a patch via mail and it was merged into master. While rebasing it will be automatically skipped.
 The new structure becomes:</p>
-<pre><code class="language-ascii" data-lang="ascii">M0---M1---M2---M3---B3'---M4---M5---M6---M7 master
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">M0---M1---M2---M3---B3&#39;---M4---M5---M6---M7 master
                                           \
                                            \
                                             \
-                                             B1'---B2'---B4'---B5' feature
-</code></pre><p>As you can see rebase creates a much more linear structure. This creates a neat and clean patch series which is easy for reviewer to review. The patches sent are all on the current state of master and is optimized for reviewing.</p>
+                                             B1&#39;---B2&#39;---B4&#39;---B5&#39; feature
+</code></pre></div><p>As you can see rebase creates a much more linear structure. This creates a neat and clean patch series which is easy for reviewer to review. The patches sent are all on the current state of master and is optimized for reviewing.</p>
 <p>If you had to do the same process but merging at each step instead of rebasing i.e. doing repeated merges. The structures would roughly become:</p>
-<pre><code class="language-ascii" data-lang="ascii">M0---M1---M2------M3---M4---M5---M6---M7
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">M0---M1---M2------M3---M4---M5---M6---M7
  \         \       \                   \
   \         \       \                   \
    \         \       \                   \
     B1---B2---C1--B3--C2---B4---B5--------C3
-</code></pre><p>C1, C2, C3 denote the merge with additional merge commits that are done for every merge. This is quite difficult for reviewer to check as multiple changes are tested in the master brought by multiple changes. All the changes must be understood by reviewer and hence, must analyze the older version of master to analyze the changes brought by the new branches.</p>
+</code></pre></div><p>C1, C2, C3 denote the merge with additional merge commits that are done for every merge. This is quite difficult for reviewer to check as multiple changes are tested in the master brought by multiple changes. All the changes must be understood by reviewer and hence, must analyze the older version of master to analyze the changes brought by the new branches.</p>
 <p>The information on merge remain as-is. But, the history of rebase gets omitted in the process. I do not imply that the commits are lost but the useful record which might show how the rebased patches are related to original patches are not present.</p>
 <p>Another important thing that can be done via rebase is we can transplant a branch based on one branch to another branch. This is done via <code>rebase --onto</code>.</p>
 <p>Let's assume, you're working on a mobile app project. You have a basic login phase for the app. A team is working on an experimental branch to introduce new cool features. You fork the experimental branch to make login cooler by adding facial recognition login rather than just plain login.
 The structure might look like this:</p>
-<pre><code class="language-ascii" data-lang="ascii">o---o---o---o---o---o  master
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">o---o---o---o---o---o  master
      \
       o---o---o---o---o  experimental
                        \
                         o---o---o  facial_recognition
-</code></pre><p>Now, your team working on facial recognition make a breakthrough and the functionality is ready for production but, unluckily many works in experimental branch is still a work in process. So, what do you do in this situation?
+</code></pre></div><p>Now, your team working on facial recognition make a breakthrough and the functionality is ready for production but, unluckily many works in experimental branch is still a work in process. So, what do you do in this situation?
 Well, <code>git rebase</code> has magical voodoo to handle this situation.
 You do</p>
-<pre><code class="language-git" data-lang="git">git rebase --onto master experimental facial_recognition
-</code></pre><p>If there are no conflicts. This will handle the task perfectly and the structure now looks something like this:</p>
-<pre><code class="language-ascii" data-lang="ascii">o---o---o---o---o---o---o  master
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">git rebase --onto master experimental facial_recognition
+</code></pre></div><p>If there are no conflicts. This will handle the task perfectly and the structure now looks something like this:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">o---o---o---o---o---o---o  master
     |                     \
-    |                      o'---o'---o' facial_recognition
+    |                      o&#39;---o&#39;---o&#39; facial_recognition
      \
       o---o---o---o---o  experimental
-</code></pre><p>This is what you wanted. Cool, right?</p>
+</code></pre></div><p>This is what you wanted. Cool, right?</p>
 <p>What if there were conflicts. Well, rebase will stop at first conflicting commit and leave commit markers in the tree. Use <code>git diff</code> and locate <code>&lt;&lt;&lt;&lt;&lt;&lt;</code> markers to find the problem.
 After editing the conflicting files do</p>
-<pre><code class="language-git" data-lang="git">git add &lt;filename&gt;
-</code></pre><p>If the conflict is resolved then, do</p>
-<pre><code class="language-git" data-lang="git">git rebase --continue
-</code></pre><p>To undo the git rebase</p>
-<pre><code class="language-git" data-lang="git">git rebase --abort
-</code></pre><p>Much more configurations and options are available for rebase. Do checkout the git-rebase <a href="https://git-scm.com/docs/git-rebase">docs</a>.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">git add &lt;filename&gt;
+</code></pre></div><p>If the conflict is resolved then, do</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">git rebase --continue
+</code></pre></div><p>To undo the git rebase</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">git rebase --abort
+</code></pre></div><p>Much more configurations and options are available for rebase. Do checkout the git-rebase <a href="https://git-scm.com/docs/git-rebase">docs</a>.</p>
 <h2 id="interactive-rebase">Interactive rebase</h2>
 <p>Now, onward to another awesome rebase option <code>rebase  -i</code> which is generally said as &ldquo;Interactive rebase mode&rdquo;. With interactive mode, you can edit the commits which are rebased, re-order the commits and remove them if unwanted or bad patches.</p>
 <p>Interactive mode is preferable to use for the following workflow:</p>
-<pre><code class="language-ascii" data-lang="ascii">1. you have a wonderful idea
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">1. you have a wonderful idea
 2. you want to hack the code and you do
 3. prepare a series for submission
 4. submit
-</code></pre><p>Interactive rebase can be more powerful than automatic rebase in certain scenarios as it can be used to alter commits as they are moved to new branch and offers complete control over the branch's commit history. It will help to clean up a messy history before merging a feature into master.</p>
+</code></pre></div><p>Interactive rebase can be more powerful than automatic rebase in certain scenarios as it can be used to alter commits as they are moved to new branch and offers complete control over the branch's commit history. It will help to clean up a messy history before merging a feature into master.</p>
 <p>An example of interactive rebase:</p>
-<pre><code class="language-git" data-lang="git">git checkout experimental
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">git checkout experimental
 git rebase -i master
-</code></pre><p>This will open the editor of your choice. Mine is Emacs. The editor will show listings of all the commits:</p>
-<pre><code class="language-git" data-lang="git">pick 44d5c7a Message for commit #1
+</code></pre></div><p>This will open the editor of your choice. Mine is Emacs. The editor will show listings of all the commits:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">pick 44d5c7a Message for commit #1
 pick ******* Message for commit #2
-</code></pre><p>Now can you change the pick command or reorder the entries to modify the branch's history.
+</code></pre></div><p>Now can you change the pick command or reorder the entries to modify the branch's history.
 Alternatively, you can merge two commits as a single commit if they portray the same message for similar change. This can be done via</p>
-<pre><code class="language-git" data-lang="git">git commit --fixup &lt;commit&gt;
-</code></pre><p>After saving and closing the file, Git will perform the rebase according to your instructions and you're the incharge in interactive mode while rebase handles automatically for you. This is a unique feature.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">git commit --fixup &lt;commit&gt;
+</code></pre></div><p>After saving and closing the file, Git will perform the rebase according to your instructions and you're the incharge in interactive mode while rebase handles automatically for you. This is a unique feature.</p>
 <p>You can also split commits using interactive mode. You can add commits or split a commit into two.
 To do this do the following:</p>
 <ol>
 <li>Do</li>
 </ol>
-<pre><code class="language-git" data-lang="git">git rebase -i &lt;commit&gt;^
-</code></pre><p>where the <code>&lt;commit&gt;</code> is the commit you want to split.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">git rebase -i &lt;commit&gt;^
+</code></pre></div><p>where the <code>&lt;commit&gt;</code> is the commit you want to split.</p>
 <ol start="2">
 <li>
 <p>Mark the commit with action &ldquo;edit&rdquo;.</p>
@@ -236,12 +189,12 @@ To do this do the following:</p>
 <p>Execute</p>
 </li>
 </ol>
-<pre><code class="language-git" data-lang="git">git reset HEAD^
-</code></pre><ol start="4">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">git reset HEAD^
+</code></pre></div><ol start="4">
 <li>Now add changes to the index that you want to have as first commit and do</li>
 </ol>
-<pre><code class="language-git" data-lang="git">git add -i or git gui
-</code></pre><ol start="5">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">git add -i or git gui
+</code></pre></div><ol start="5">
 <li>
 <p>Commit the now-current index.</p>
 </li>
@@ -252,8 +205,8 @@ To do this do the following:</p>
 <p>Continue rebase with</p>
 </li>
 </ol>
-<pre><code class="language-git" data-lang="git">git rebase --continue
-</code></pre><p>There is also an important case where you need to recover from upstream rebase. The rebase <a href="https://git-scm.com/docs/git-rebase#_recovering_from_upstream_rebase">doc</a> details nicely and enough for understanding it. Don't miss it.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">git rebase --continue
+</code></pre></div><p>There is also an important case where you need to recover from upstream rebase. The rebase <a href="https://git-scm.com/docs/git-rebase#_recovering_from_upstream_rebase">doc</a> details nicely and enough for understanding it. Don't miss it.</p>
 <p>There are people's different opinions regarding rebase and merge. People claim one is better than the other. But, rather than claiming superiority of one over another and creating another flame war, we must embrace both as both are very important for varying situations. The amazing thing about Git is it doesn't force one more over another. It does what the maintainer prefers. So, using one over another is a matter of taste and may be due to certain cases but, claiming never to use one and always use another one because it is better is doing un-justice to the tooling and missing out on a great tool.</p>
 <p>With that said, let's look onto the scenarios where you can use Rebase or the cases for using Rebasing.</p>
 <ol>
@@ -301,19 +254,61 @@ Only use <code>--force</code> flag if you know what you're doing. The conflict m
 <li>(<a href="https://www.derekgourlay.com/blog/git-when-to-merge-vs-when-to-rebase/">https://www.derekgourlay.com/blog/git-when-to-merge-vs-when-to-rebase/</a>)</li>
 </ul>
 
-  
+			</div>
 
-      </main>
-      
-  
-  <script>
-  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-  ga('create', 'UA-108523579-1', 'auto');
-  ga('send', 'pageview');
-  </script>
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
-  
+			<div class="tags">
+				
+					
+						<ul class="flat">
+							
+							<li><a href="/tags/git">git</a></li>
+							
+							<li><a href="/tags/c">c</a></li>
+							
+							<li><a href="/tags/shell">shell</a></li>
+							
+							<li><a href="/tags/rebase">rebase</a></li>
+							
+							<li><a href="/tags/merge">merge</a></li>
+							
+						</ul>
+					
+				
+			</div><div id="disqus_thread"></div>
+<script type="text/javascript">
+	(function () {
+		
+		
+		if (window.location.hostname == "localhost")
+			return;
 
-  </div>
-  </body>
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		var disqus_shortname = 'prertik-github-io';
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the </a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+	</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © Copyright notice |  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-108523579-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script>feather.replace()</script>
+</body>
 </html>
