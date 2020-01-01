@@ -1,27 +1,46 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>learn on (recur code)</title>
-    <link>https://prertik.github.io/tags/learn/</link>
-    <description>Recent content in learn on (recur code)</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>© Copyright notice</copyright>
-    <lastBuildDate>Fri, 22 Jun 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://prertik.github.io/tags/learn/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>:-/</title>
-      <link>https://prertik.github.io/post/experience/</link>
-      <pubDate>Fri, 22 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://prertik.github.io/post/experience/</guid>
-      <description>A week ago I had promised an hour and a half of every friday to teach some interested kids about computers who are currently studying in a Government run school. This idea of contributing to teach others was proposed to be my a genuine social worker Suraj Karki.
-Here are my findings on the first day:
-  There are three types of school found in Nepal, i) International school: funded and run by foreigners, ii) Boarding schools: funded by local people or some organization and iii) Government school: funded and run by the Government.</description>
-    </item>
-    
-  </channel>
+	<channel>
+		<title>learn on (recur code)</title>
+		<link>https://prertik.github.io/tags/learn/</link>
+		<description>Recent content in learn on (recur code)</description>
+		<generator>Hugo 0.62.0 -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>© Copyright notice</copyright>
+		<lastBuildDate>Fri, 22 Jun 2018 00:00:00 +0000</lastBuildDate>
+		<atom:link href="https://prertik.github.io/tags/learn/index.xml" rel="self" type="application/rss+xml" />
+		<item>
+			<title>:-/</title>
+			<link>https://prertik.github.io/post/experience/</link>
+			<pubDate>Fri, 22 Jun 2018 00:00:00 +0000</pubDate>
+			<guid isPermaLink="true">https://prertik.github.io/post/experience/</guid>
+			<description>&lt;p&gt;A week ago I had promised an hour and a half of every friday to teach some interested kids about computers
+who are currently studying in a Government run school. This idea of contributing to teach others was proposed to be my a genuine social worker Suraj Karki.&lt;/p&gt;
+&lt;p&gt;Here are my findings on the first day:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;There are three types of school found in Nepal, i) International school: funded and run by foreigners, ii) Boarding schools: funded by local people or some organization and iii) Government school: funded and run by the Government. The quality of education is the same as the order i.e. descending from i) to iii). Nepal, being a country among the South Asian countries which have tough academics, enforces students to learn a lot theoretically in a short period of time. The teaching in the category i) is done in the similar techniques as done in Europe or USA so, much more students get to test their theoretical knowledge. The teaching in category iii) is very poor as the teachers go through some rigorous examination to get their teaching license and after getting the Government issued teaching license these teachers cannot get fired from job and hence, do very bad job at teaching.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Though different techniques of teaching are used, Nepal has a standard examination during the final year of schooling right before high school which makes students jot down the theoretical portions and formulas without understanding the mechanism behind it and the students in Government school face more problems and hence, they jot down everything that gets them passed and do not learn things practically.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The Government school lacks lots of resources and computers to teach the students. The school even lacks internet which is deemed as the new basic requirement for human survival. The computers present there are very low spec and in a bad condition to learn effectively.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Students lack the motivation to learn something new because of their laziness but a great developer and a wise man &lt;a href=&#34;https://twitter.com/JSchindelin&#34;&gt;Johannes Schindelin&lt;/a&gt; pointed me to an &lt;a href=&#34;https://medium.com/@dr_eprice/laziness-does-not-exist-3af27e312d01&#34;&gt;awesome article&lt;/a&gt; I believe the lack of motivation is due to the way they are taught i.e. _too_much_ theoretical knowledge with no practical implication and when interesting questions are asked by the students, they get scolded for asking out of syllabus by their teachers.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;I am familiar with the works of &lt;a href=&#34;https://twitter.com/samaaron&#34;&gt;Dr. Sam Aaron&lt;/a&gt; who created &lt;a href=&#34;https://sonic-pi.net/&#34;&gt;Sonic Pi&lt;/a&gt; which uses Ruby programming language to create awesome music. He sometimes teaches to kids at primary level using Raspberry Pi in abroad. The kids (in abroad) after getting some guidelines can hook up their Pi and can create some awesome music. But, here the students at Grade 7 are having a hard time figuring out differences between hardware and software, work of CPU, description of components of Computer, but can give a proper definition of CPU, RAM, ROM, etc i.e. they only know the jotted down definition but do not know what the words are implying.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Some students show awesome creativity which needs proper guidance to develop into something awesome. Other students have creativity but do not display it easily and have a hard time being creative.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Even in higher levels, we as Engineering students are enslaved to the system of theoretical knowledge. Almost all students studying Computer Engineering have proper theoretical knowledge of Theory of Computation and know the workings of Compiler, know the underlining of Compiler but cannot design a compiler because we have to learn _a_lot_ of subjects(~6) in ~3 months of time to pass the exam and we hastily jot down everything in our memory without thinking twice. We know for eg: Ampere&#39;s circuital law&#39;s both integral and differential equation by memory and can use it to solve numerical problems but lack the understandings of the practicality of that.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;These kind of things do create a massive difference between us and students in the developed countries and though we have very tough academic syllabus and learn different things academically, we lack the practicality of things we learn.&lt;/p&gt;
+</description>
+		</item>
+	</channel>
 </rss>
