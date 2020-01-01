@@ -1,96 +1,107 @@
 <!DOCTYPE html>
-<html>
+<html class="nojs" lang="en" dir="ltr">
 <head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Git Inside® Part I: Don&#39;t Fear the Rebase - (recur code)</title><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Git Inside® Part I: Don&#39;t Fear the Rebase – (recur code)</title>
+<meta name="description" content="This is a two part blog. This is Part I of II.">
+<meta name="created" content="2018-05-10T00:00:00+0000">
+<meta name="modified" content="2018-05-10T00:00:00+0000">
+<meta name="author" content="Pratik Karki">
 
-	<meta property="og:title" content="Git Inside® Part I: Don&#39;t Fear the Rebase" />
-<meta property="og:description" content="This is a two part blog. This is Part I of II." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://prertik.github.io/post/git-inside/" />
-<meta property="og:image" content="https://prertik.github.io/static/tenor.gif" />
-<meta property="og:image" content="https://prertik.github.io/static/applause.gif" />
-<meta property="article:published_time" content="2018-05-10T00:00:00+00:00" />
-<meta property="article:modified_time" content="2018-05-10T00:00:00+00:00" />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://prertik.github.io/static/tenor.gif"/>
+<meta property="og:site_name" content="(recur code)">
+<meta property="og:title" content="Git Inside® Part I: Don&#39;t Fear the Rebase">
+<meta property="og:url" content="https://prertik.github.io/post/git-inside/">
+<meta property="og:type" content="article">
 
-<meta name="twitter:title" content="Git Inside® Part I: Don&#39;t Fear the Rebase"/>
-<meta name="twitter:description" content="This is a two part blog. This is Part I of II."/>
-<link rel="stylesheet" type="text/css" media="screen" href="https://prertik.github.iocss/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="https://prertik.github.iocss/main.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="https://prertik.github.iocss/all.css" />
+<meta name="generator" content="Hugo 0.62.0" />
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+
+
+<link rel="canonical" href="https://prertik.github.io/post/git-inside/">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/css/styles.9a3856451d3f4911845551d6f046455bd8cbf120441071c76e7438ba3ac163e1.css">
+<link rel="stylesheet" href="/css/print.27fc184f8670f41a2690985390779e7b20335a8fadff8fa015cf9417ffe50c36.css" media="print">
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Git Inside® Part I: Don't Fear the Rebase",
+    "datePublished": "2018-05-10T00:00:00Z",
+    "dateModified": "2018-05-10T00:00:00Z",
+    "url" : "https://prertik.github.io/post/git-inside/",
+    "description": "This is a two part blog. This is Part I of II.",
+    "keywords": ["git","c","shell","rebase","merge"],
+    "author": {
+      "@type": "Person",
+      "name": "Pratik Karki"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://prertik.github.io"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "(recur code)",
+      "url": "https://prertik.github.io"
+    }
+  }
+</script>
+
+<script defer src="/js/umbrella.min.b426107371d121c9a56a27aac9e9058ff592a021e2f4c3c94827fe70920d3cbb.js"></script>
+<script defer src="/js/script.min.8e4d91ebe0d9226621e408b7205bd7b009e4935608e4b29c4275116490cc836d.js"></script>
+
+
 </head>
 
 <body>
-	<div class="container wrapper">
-		<div class="header">
-	
-		<div class="avatar">
-			<a href="https://prertik.github.io">
-				<img src="https://avatars0.githubusercontent.com/u/12194950?s=460&amp;v=4" alt="(recur code)" />
-			</a>
-		</div>
-	
-	<h1 class="site-title"><a href="https://prertik.github.io">(recur code)</a></h1>
-	<div class="site-description"><p>Writings on Coding and Life</p><nav class="nav social">
-			<ul class="flat"><li class="li-social"><a href="https://github.com/prertik"><i title="Github" class="icons github"></i></a></li><li class="li-social"><a href="/index.xml"><i title="RSS" class="icons rss"></i></a></li></ul>
-		</nav>
-	</div>
-
-	<nav class="nav">
-		<ul class="flat">
-			
-			<li>
-				<a href="/">Home</a>
-			</li>
-			
-			<li>
-				<a href="/about/about">About</a>
-			</li>
-			
-			<li>
-				<a href="/nsfw">NSFW</a>
-			</li>
-			
-			<li>
-				<a href="/posts">All posts</a>
-			</li>
-			
-			<li>
-				<a href="/tags">Tags</a>
-			</li>
-			
-		</ul>
-	</nav>
+<div class="page layout__page layout__sidebar-second">
+<header class="header layout__header">
+<a href="/" title="Home" rel="home" class="header__logo"><img src="/images/logo.png" alt="Home" class="header__logo-image"></a>
+<h1 class="header__site-name">
+<a href="/" title="Home" class="header__site-link" rel="home"><span>(recur code)</span></a>
+</h1>
+<div class="region header__region">
 </div>
+</header>
+
+<nav class="main-menu layout__navigation">
+<h2 class="visually-hidden">Main menu</h2>
+<ul class="navbar">
+<li><a class="" href="/">Home</a></li>
+<li><a class="" href="/nsfw/">Nsfws</a></li>
+<li><a class="active" href="/post/">Posts</a></li>
+<li><a class="" href="/about/">Abouts</a></li>
+</ul>
+</nav>
 
 
-		<div class="post">
-			<div class="author">
-				
-			</div>
-			<div class="post-header">
-				
-					<div class="meta">
-						<div class="date">
-							<span class="day">10</span>
-							<span class="rest">May 2018</span>
-						</div>
-					</div>
-				
-				<div class="matter">
-					<h1 class="title">Git Inside® Part I: Don&#39;t Fear the Rebase</h1>
-				</div>
-			</div>
-			<div class="markdown">
-				<p>Ok, you've read my previous Git blog. There were nice feedback in the <a href="https://public-inbox.org/git/CAH5451mJO3Bgg9DST57fqcGGU-SPrcSECjXi0qOqeKsW0uaRzg@mail.gmail.com/">mailing list</a> and in emails and IRC. This week I did a close study on <code>git-rebase.</code>
+<main class="main layout__main">
+<article class="section-post single-view">
+<header>
+<h1 class="title ">Git Inside® Part I: Don&#39;t Fear the Rebase</h1>
+<div class="tags">
+Tags:
+<ul>
+<li><a href="/tags/git">git</a></li>
+<li><a href="/tags/c">c</a></li>
+<li><a href="/tags/shell">shell</a></li>
+<li><a href="/tags/rebase">rebase</a></li>
+<li><a href="/tags/merge">merge</a></li>
+</ul>
+</div>
+</header>
+<div class="content">
+<p>Ok, you've read my previous Git blog. There were nice feedback in the <a href="https://public-inbox.org/git/CAH5451mJO3Bgg9DST57fqcGGU-SPrcSECjXi0qOqeKsW0uaRzg@mail.gmail.com/">mailing list</a> and in emails and IRC. This week I did a close study on <code>git-rebase.</code>
 There are _a_lot_of_posts_ about <a href="https://git-scm.com/docs/git-rebase"><code>git-rebase</code></a> which talk of benefits of rebase and some are negative towards rebase.
 By convention, it is understood that <code>rebase</code> is harder to understand for beginners that's why most will prefer merging. Even Github has merging of pull requests by default and to do rebase and merge you'll have to select it from the drop-down menu in the pull-requests section.</p>
 <p>Don't be afraid of rebase and after reading this, think of all the things you could have done if you had known rebase.</p>
 <p>After understanding the power of rebase and use it to make your branches more cleaner and linear. You will be the cool one.</p>
-<figure>
-    <img src="/static/tenor.gif"/> 
+<figure class="image ">
+<img src="/static/tenor.gif"  width="390" height="292">
 </figure>
 
 <p>Ok, let's de-structure <code>git-rebase</code>. The general idea of rebase is that it is used to reapply commits on top of another base tip.
@@ -242,8 +253,8 @@ Only use <code>--force</code> flag if you know what you're doing. The conflict m
 <p>This post was about the philosophy and general idea behind &ldquo;rebase&rdquo; and the follow-up post will be of breaking down of the current script file of <code>git-rebase.sh</code> and show how that can be made a built-in.</p>
 <p>With this my research phase is done and will now start implementing changes. You can find me in <code># git-devel</code> as &ldquo;prertik&rdquo;.</p>
 <p>Shout out to all the awesome developers behind Git.</p>
-<figure>
-    <img src="/static/applause.gif"/> 
+<figure class="image ">
+<img src="/static/applause.gif"  width="300" height="200">
 </figure>
 
 <p>Thanks to <a href="https://twitter.com/christiancouder">Christian Couder</a> and <a href="https://twitter.com/jschindelin">Johannes Schindelin</a> for helping me research on git-rebase.</p>
@@ -258,187 +269,18 @@ Only use <code>--force</code> flag if you know what you're doing. The conflict m
 <li>(<a href="https://www.derekgourlay.com/blog/git-when-to-merge-vs-when-to-rebase/">https://www.derekgourlay.com/blog/git-when-to-merge-vs-when-to-rebase/</a>)</li>
 </ul>
 
-			</div>
-			<div class="tags">
-				
-				
-				
-				
-					
-					
-					
-						<div class="taxosfloating_left">
-							<p>Tags</p>
-						</div>
-						<div class="termsfloating_right">
-							<p>
-								
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-										<a href="/tags/c/"> c </a>
-									
-									
-									
-									
-								
-									
-									
-									
-								
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-										<a href="/tags/git/"> git </a>
-									
-									
-									
-									
-								
-									
-									
-									
-								
-									
-									
-										<a href="/tags/merge/"> merge </a>
-									
-									
-								
-									
-									
-									
-								
-									
-									
-									
-								
-									
-									
-									
-								
-									
-									
-										<a href="/tags/rebase/"> rebase </a>
-									
-									
-								
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-										<a href="/tags/shell/"> shell </a>
-									
-									
-									
-									
-								
-									
-									
-									
-								
-									
-									
-									
-								
-									
-									
-									
-								
-							</p>
-						</div>
-						<div class="clearit"></div>
-					
-					
-					
-				
-				
-			</div><div id="disqus_thread"></div>
-<script type="text/javascript">
-	(function () {
-		
-		
-		if (window.location.hostname == "localhost")
-			return;
 
-		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-		var disqus_shortname = 'prertik-github-io';
-		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	})();
-</script>
-<noscript>Please enable JavaScript to view the</a></noscript>
-<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </div>
-	</div>
-	<div class="footer wrapper">
-	<nav class="nav">
-		<div class="footertext"> © Copyright notice </div>
-	</nav>
+</article>
+</main>
+
+
+<footer class="footer layout__footer">
+<p><span>© (recur code)</span></p>
+
+
+</footer>
+
 </div>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-108523579-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
 </body>
 </html>

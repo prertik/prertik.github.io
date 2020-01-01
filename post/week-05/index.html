@@ -1,273 +1,111 @@
 <!DOCTYPE html>
-<html>
+<html class="nojs" lang="en" dir="ltr">
 <head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Week 05 Progress - (recur code)</title><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Week 05 Progress – (recur code)</title>
+<meta name="description" content="Hello everyone, This week I have been working on migrating small shell scripting component to C builtin. The work will be towards parsing a small modular component so …">
+<meta name="created" content="2018-06-04T00:00:00+0000">
+<meta name="modified" content="2018-06-04T00:00:00+0000">
 
-	<meta property="og:title" content="Week 05 Progress" />
-<meta property="og:description" content="Hello everyone,
-This week I have been working on migrating small shell scripting component to C builtin. The work will be towards parsing a small modular component so that it can directly be used. With the development of my current patch, the rebase built-in that I will work on can do a super simple rebase.
-I might be able to demonstrate something in 2-3 days.
-That&#39;s a wrap up for this week." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://prertik.github.io/post/week-05/" />
-<meta property="article:published_time" content="2018-06-04T00:00:00+00:00" />
-<meta property="article:modified_time" content="2018-06-04T00:00:00+00:00" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Week 05 Progress"/>
-<meta name="twitter:description" content="Hello everyone,
-This week I have been working on migrating small shell scripting component to C builtin. The work will be towards parsing a small modular component so that it can directly be used. With the development of my current patch, the rebase built-in that I will work on can do a super simple rebase.
-I might be able to demonstrate something in 2-3 days.
-That&#39;s a wrap up for this week."/>
-<link rel="stylesheet" type="text/css" media="screen" href="https://prertik.github.iocss/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="https://prertik.github.iocss/main.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="https://prertik.github.iocss/all.css" />
+
+<meta property="og:site_name" content="(recur code)">
+<meta property="og:title" content="Week 05 Progress">
+<meta property="og:url" content="https://prertik.github.io/post/week-05/">
+<meta property="og:type" content="article">
+
+<meta name="generator" content="Hugo 0.62.0" />
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+
+
+<link rel="canonical" href="https://prertik.github.io/post/week-05/">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/css/styles.9a3856451d3f4911845551d6f046455bd8cbf120441071c76e7438ba3ac163e1.css">
+<link rel="stylesheet" href="/css/print.27fc184f8670f41a2690985390779e7b20335a8fadff8fa015cf9417ffe50c36.css" media="print">
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Week 05 Progress",
+    "datePublished": "2018-06-04T00:00:00Z",
+    "dateModified": "2018-06-04T00:00:00Z",
+    "url" : "https://prertik.github.io/post/week-05/",
+    "description": "Hello everyone, This week I have been working on migrating small shell scripting component to C builtin. The work will be towards parsing a small modular component so …",
+    "keywords": ["git","c","shell"],
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://prertik.github.io"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "(recur code)",
+      "url": "https://prertik.github.io"
+    }
+  }
+</script>
+
+<script defer src="/js/umbrella.min.b426107371d121c9a56a27aac9e9058ff592a021e2f4c3c94827fe70920d3cbb.js"></script>
+<script defer src="/js/script.min.8e4d91ebe0d9226621e408b7205bd7b009e4935608e4b29c4275116490cc836d.js"></script>
+
+
 </head>
 
 <body>
-	<div class="container wrapper">
-		<div class="header">
-	
-		<div class="avatar">
-			<a href="https://prertik.github.io">
-				<img src="https://avatars0.githubusercontent.com/u/12194950?s=460&amp;v=4" alt="(recur code)" />
-			</a>
-		</div>
-	
-	<h1 class="site-title"><a href="https://prertik.github.io">(recur code)</a></h1>
-	<div class="site-description"><p>Writings on Coding and Life</p><nav class="nav social">
-			<ul class="flat"><li class="li-social"><a href="https://github.com/prertik"><i title="Github" class="icons github"></i></a></li><li class="li-social"><a href="/index.xml"><i title="RSS" class="icons rss"></i></a></li></ul>
-		</nav>
-	</div>
-
-	<nav class="nav">
-		<ul class="flat">
-			
-			<li>
-				<a href="/">Home</a>
-			</li>
-			
-			<li>
-				<a href="/about/about">About</a>
-			</li>
-			
-			<li>
-				<a href="/nsfw">NSFW</a>
-			</li>
-			
-			<li>
-				<a href="/posts">All posts</a>
-			</li>
-			
-			<li>
-				<a href="/tags">Tags</a>
-			</li>
-			
-		</ul>
-	</nav>
+<div class="page layout__page layout__sidebar-second">
+<header class="header layout__header">
+<a href="/" title="Home" rel="home" class="header__logo"><img src="/images/logo.png" alt="Home" class="header__logo-image"></a>
+<h1 class="header__site-name">
+<a href="/" title="Home" class="header__site-link" rel="home"><span>(recur code)</span></a>
+</h1>
+<div class="region header__region">
 </div>
+</header>
+
+<nav class="main-menu layout__navigation">
+<h2 class="visually-hidden">Main menu</h2>
+<ul class="navbar">
+<li><a class="" href="/">Home</a></li>
+<li><a class="" href="/nsfw/">Nsfws</a></li>
+<li><a class="active" href="/post/">Posts</a></li>
+<li><a class="" href="/about/">Abouts</a></li>
+</ul>
+</nav>
 
 
-		<div class="post">
-			<div class="author">
-				
-			</div>
-			<div class="post-header">
-				
-					<div class="meta">
-						<div class="date">
-							<span class="day">04</span>
-							<span class="rest">Jun 2018</span>
-						</div>
-					</div>
-				
-				<div class="matter">
-					<h1 class="title">Week 05 Progress</h1>
-				</div>
-			</div>
-			<div class="markdown">
-				<p>Hello everyone,</p>
+<main class="main layout__main">
+<article class="section-post single-view">
+<header>
+<h1 class="title ">Week 05 Progress</h1>
+<div class="tags">
+Tags:
+<ul>
+<li><a href="/tags/git">git</a></li>
+<li><a href="/tags/c">c</a></li>
+<li><a href="/tags/shell">shell</a></li>
+</ul>
+</div>
+</header>
+<div class="content">
+<p>Hello everyone,</p>
 <p>This week I have been working on migrating small shell scripting component to C builtin. The work will be towards parsing a small modular component so that it can directly be used. With the development of my current patch, the rebase built-in that I will work on can do a super simple rebase.</p>
 <p>I might be able to demonstrate something in 2-3 days.</p>
 <p>That's a wrap up for this week.</p>
 
-			</div>
-			<div class="tags">
-				
-				
-				
-				
-					
-					
-					
-						<div class="taxosfloating_left">
-							<p>Tags</p>
-						</div>
-						<div class="termsfloating_right">
-							<p>
-								
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-										<a href="/tags/c/"> c </a>
-									
-									
-									
-									
-									
-									
-									
-									
-								
-									
-									
-									
-								
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-										<a href="/tags/git/"> git </a>
-									
-									
-									
-									
-									
-									
-									
-									
-								
-									
-									
-									
-								
-									
-									
-									
-								
-									
-									
-									
-								
-									
-									
-									
-								
-									
-									
-									
-								
-									
-									
-									
-								
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-										<a href="/tags/shell/"> shell </a>
-									
-									
-									
-									
-									
-									
-									
-									
-								
-									
-									
-									
-								
-									
-									
-									
-								
-									
-									
-									
-								
-							</p>
-						</div>
-						<div class="clearit"></div>
-					
-					
-					
-				
-				
-			</div><div id="disqus_thread"></div>
-<script type="text/javascript">
-	(function () {
-		
-		
-		if (window.location.hostname == "localhost")
-			return;
 
-		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-		var disqus_shortname = 'prertik-github-io';
-		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	})();
-</script>
-<noscript>Please enable JavaScript to view the</a></noscript>
-<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </div>
-	</div>
-	<div class="footer wrapper">
-	<nav class="nav">
-		<div class="footertext"> © Copyright notice </div>
-	</nav>
+</article>
+</main>
+
+
+<footer class="footer layout__footer">
+<p><span>© (recur code)</span></p>
+
+
+</footer>
+
 </div>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-108523579-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
 </body>
 </html>
