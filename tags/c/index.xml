@@ -1,446 +1,132 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>c on (recur code)</title>
-		<link>https://prertik.github.io/tags/c/</link>
-		<description>Recent content in c on (recur code)</description>
-		<generator>Hugo 0.62.0 -- gohugo.io</generator>
-		<language>en-us</language>
-		<copyright>© Copyright notice</copyright>
-		<lastBuildDate>Mon, 06 Aug 2018 00:00:00 +0000</lastBuildDate>
-		<atom:link href="https://prertik.github.io/tags/c/index.xml" rel="self" type="application/rss+xml" />
-		<item>
-			<title>Week 13 - the last week of GSoC Work period!</title>
-			<link>https://prertik.github.io/post/week-13-the-last-week/</link>
-			<pubDate>Mon, 06 Aug 2018 00:00:00 +0000</pubDate>
-			<guid isPermaLink="true">https://prertik.github.io/post/week-13-the-last-week/</guid>
-			<description>&lt;p&gt;Hello everyone, Sorry for the late post as you know I have been very busy lately giving finishing touches to the &lt;code&gt;builtin/rebase.c&lt;/code&gt;. Yes, you read it right. We have a complete &lt;code&gt;rebase.c&lt;/code&gt;, it has some nits still, as some tests particularly &lt;code&gt;t5520&lt;/code&gt; and &lt;code&gt;t7406&lt;/code&gt; are not passing but the good news is, the tests &lt;code&gt;t34*&lt;/code&gt; are passing. Yipee!&lt;/p&gt;
-&lt;p&gt;Regarding the status on the mailing list, after some regression tests suggested by &lt;a href=&#34;https://github.com/dscho&#34;&gt;@dscho&lt;/a&gt;, we found out that certain key changes need to be done to &lt;a href=&#34;https://public-inbox.org/git/CAOZc8M_FJmMCEB1MkJrBRpLiFjy8OTEg_MxoNQTh5-brHxR-=A@mail.gmail.com/&#34;&gt;v5&lt;/a&gt;, so I requested the Git maintainer to hold it for some time i.e. not merge from &lt;code&gt;pu&lt;/code&gt; to &lt;code&gt;next&lt;/code&gt;. The good news is I&#39;m getting &lt;code&gt;v6&lt;/code&gt; ready as of now.&lt;/p&gt;
-&lt;p&gt;So, I&#39;ll be submitting all the commits of my branch to mailing list as soon as it is ready. As, I have stated in my previous blogs, there are lots of commits with specific changes as @dscho instructed me to do, as it will be more make easier for review process and won&#39;t get stuck in review cycle for long.&lt;/p&gt;
-&lt;p&gt;I&#39;ll conclude my GSoC blog series with this status of my work.&lt;/p&gt;
-&lt;p&gt;And a quick reminder, a detailed part II of &lt;a href=&#34;https://prertik.github.io/post/git-inside/&#34;&gt;Git Inside® Part I: Don&#39;t Fear the Rebase&lt;/a&gt; will be posted (after the complete GSoC period) for more detail read of my conversion from &lt;code&gt;git-rebase.sh&lt;/code&gt; to &lt;code&gt;builtin/rebase.c&lt;/code&gt;. I&#39;ll closely describe the underlyings of Git or Git Internals in that blog post. So, do keep on checking out this blog.&lt;/p&gt;
-</description>
-		</item>
-		<item>
-			<title>Week 11 and Week 12 merge!</title>
-			<link>https://prertik.github.io/post/week-11/</link>
-			<pubDate>Sat, 21 Jul 2018 00:00:00 +0000</pubDate>
-			<guid isPermaLink="true">https://prertik.github.io/post/week-11/</guid>
-			<description>&lt;p&gt;Hello everyone, How are you?&lt;/p&gt;
-&lt;p&gt;I apologize for not updating my blog post the previous week.&lt;/p&gt;
-&lt;p&gt;So, on week 11, if you had followed my week 10 post, you would think by this time I will have gotten all the options of the rebase. Well, my week technically started by cleaning all the options to create them as separate commits and polish them for reviewing. Why is that more important? Well, it&#39;s because every reviewer is a human being and it&#39;s a natural tendency to review a lot of smaller things rather than a big monolithic one. So, I started working on the commit messages and ofcourse using the awesome rebase to do it.&lt;/p&gt;
-&lt;p&gt;I had hoped I will complete rebase by previous mid week and was extremely looking forward to it but suddenly there was problem in my internet connection and some electricity problems which I&#39;m going to spare you the details. After both the internet connection and electricity problems got fixed after some days, I resumed my rebase task. The commit history if you will look at the &lt;a href=&#34;https://github.com/git/git/pull/505&#34;&gt;pull request&lt;/a&gt; is in pretty good shape. Now, still I&#39;m rewording it to create more meaningful commit message so you can understand what I&#39;ve done too. I am also preparing a new iteration of my patches with major changes which I&#39;ll detail on the cover letter of my patch series.&lt;/p&gt;
-&lt;p&gt;So, my target this week is clean all the commits and ofcourse continue with the options and types of rebase.&lt;/p&gt;
-&lt;p&gt;That&#39;s all for the previous week and this week.&lt;/p&gt;
-</description>
-		</item>
-		<item>
-			<title>Week 10 Progress</title>
-			<link>https://prertik.github.io/post/week-10/</link>
-			<pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
-			<guid isPermaLink="true">https://prertik.github.io/post/week-10/</guid>
-			<description>&lt;p&gt;Hello from Kathmandu where it has been raining a lot!&lt;/p&gt;
-&lt;p&gt;This week also there were some development on &lt;code&gt;rebase&lt;/code&gt; land!&lt;/p&gt;
-&lt;p&gt;Continuing form the past week blog post, I submitted newer iterations of
-&lt;a href=&#34;https://public-inbox.org/git/20180708180104.17921-1-predatoramigo@gmail.com/&#34;&gt;patch&lt;/a&gt;. Well, after some excellent review, the patch seemed to need some important changes, it was merged into &lt;code&gt;pu&lt;/code&gt; but a re-roll is expected to fix some issues in &lt;a href=&#34;https://public-inbox.org/git/CAPig+cQopjftfSoPHPZQAzECTAUUwZ-pXYMeWEV=VJBFm63t9g@mail.gmail.com/&#34;&gt;it&lt;/a&gt;. New iteration of this patch series will take some time to arrive.&lt;/p&gt;
-&lt;p&gt;There were lots of works done this week to add options to builtin rebase. The tricky script to convert was &lt;a href=&#34;https://github.com/prertik/git/blob/ae91dbb2556d7ea9f4e205fbf7847fa8579c64b4/TODO-rebase.sh#L661-L697&#34;&gt;this&lt;/a&gt; but it was &lt;a href=&#34;https://github.com/git/git/pull/505/commits/2837d71846519366c9e7629d827190075e443165&#34;&gt;done&lt;/a&gt;. Then &lt;code&gt;git rebase &amp;lt;upstream&amp;gt; &amp;lt;switch-to&amp;gt;&lt;/code&gt; was &lt;a href=&#34;https://github.com/git/git/pull/505/commits/6c0bc8c08064dc37fab6baf57856e9b66eff04a7&#34;&gt;implemented&lt;/a&gt;. Another cool option &lt;code&gt;--force-rebase&lt;/code&gt; was implemented along with &lt;code&gt;--signoff&lt;/code&gt;.
-The options conversion will land into the mailing list in the upcoming weeks along with the new iteration of aforementioned patch.&lt;/p&gt;
-&lt;p&gt;So, the plan for the upcoming week is to convert all the options (except the ones requiring other rebase types) and then work on other types of rebase.&lt;/p&gt;
-&lt;p&gt;That&#39;s all for this week!&lt;/p&gt;
-</description>
-		</item>
-		<item>
-			<title>Week 09 Progress</title>
-			<link>https://prertik.github.io/post/week-09/</link>
-			<pubDate>Tue, 03 Jul 2018 00:00:00 +0000</pubDate>
-			<guid isPermaLink="true">https://prertik.github.io/post/week-09/</guid>
-			<description>&lt;p&gt;Hi,&lt;/p&gt;
-&lt;p&gt;This week I submitted patch &lt;a href=&#34;https://public-inbox.org/git/20180628074655.5756-1-predatoramigo@gmail.com/&#34;&gt;v1&lt;/a&gt; ,[v2] (&lt;a href=&#34;https://public-inbox.org/git/20180702091509.15950-1-predatoramigo@gmail.com/&#34;&gt;https://public-inbox.org/git/20180702091509.15950-1-predatoramigo@gmail.com/&lt;/a&gt;) and am working on v3. On the other hand, there are other works going on towards converting the options of &lt;code&gt;git-rebase.sh&lt;/code&gt;. Currently, the options supported are &lt;code&gt;--onto&lt;/code&gt;, &lt;code&gt;--quiet&lt;/code&gt;, &lt;code&gt;--verify&lt;/code&gt;, &lt;code&gt;--continue&lt;/code&gt; and support for an upstream that is actually a symmetric range i.e. &lt;code&gt;&amp;lt;rev1&amp;gt;...&amp;lt;rev2&amp;gt;&lt;/code&gt; is also done.&lt;/p&gt;
-&lt;p&gt;All of these progress can be seen from &lt;a href=&#34;https://github.com/git/git/pull/505&#34;&gt;pull requests&lt;/a&gt;.
-Cleanup and addition of proper message will be done in the coming days.&lt;/p&gt;
-</description>
-		</item>
-		<item>
-			<title>Week 08 Progress</title>
-			<link>https://prertik.github.io/post/week-08/</link>
-			<pubDate>Mon, 25 Jun 2018 00:00:00 +0000</pubDate>
-			<guid isPermaLink="true">https://prertik.github.io/post/week-08/</guid>
-			<description>&lt;p&gt;Hello Everyone.&lt;/p&gt;
-&lt;p&gt;This is week was awesome. Though there were some difficulties due to electricity cuts, cool improvements were made to the previous patch series. The &lt;a href=&#34;https://github.com/git/git/pull/505&#34;&gt;patch series&lt;/a&gt; I&#39;m working on hit a milestone. Now, it can perform a real rebase. Of course, the environment variables are kept default and this might introduce bugs but for development purposes; to see real development, this is one amazing way. There was also some work on refactoring out codes from &lt;code&gt;sequencer.c&lt;/code&gt; to &lt;code&gt;checkout.c&lt;/code&gt; so that the codes can be used from our builtin rebase. So, after refactoring, a bug got introduced due to improper locking. This issue was fixed in [this commit] (&lt;a href=&#34;https://github.com/git/git/pull/505/commits/b58689f0cce89525e5a985122213c077b8926862)&#34;&gt;https://github.com/git/git/pull/505/commits/b58689f0cce89525e5a985122213c077b8926862)&lt;/a&gt;. This patch series might debut in the mailing list in the coming days.&lt;/p&gt;
-&lt;p&gt;You can test the patch using the same technique mentioned in previous blog post.&lt;/p&gt;
-&lt;p&gt;Stay tuned for more.&lt;/p&gt;
-</description>
-		</item>
-		<item>
-			<title>Week 07 Progress</title>
-			<link>https://prertik.github.io/post/week-07/</link>
-			<pubDate>Tue, 19 Jun 2018 00:00:00 +0000</pubDate>
-			<guid isPermaLink="true">https://prertik.github.io/post/week-07/</guid>
-			<description>&lt;p&gt;Hello everyone.&lt;/p&gt;
-&lt;p&gt;This week there was lots of progress in builtin rebase. Lots of thanks to &lt;a href=&#34;https://github.com/dscho&#34;&gt;Johannes Schindelin&lt;/a&gt;,
-without him the patch wouldn&#39;t be in current state. Rather
-than work on emulating smaller functions from &lt;code&gt;git-rebase.sh&lt;/code&gt;
-like I explained previously in my blog post. Me and &lt;a href=&#34;https://github.com/dscho&#34;&gt;Dscho&lt;/a&gt; went a lot farther and implemented a super simple rebase. You can find the code &lt;a href=&#34;https://github.com/git/git/pull/505&#34;&gt;here&lt;/a&gt;.
-If you&#39;re feeling adventurous get the code and run some rebase tasks.
-Maybe try this:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;./git --exec-path=&lt;span style=&#34;color:#a31515&#34;&gt;&amp;#34;&lt;/span&gt;$PWD&lt;span style=&#34;color:#a31515&#34;&gt;&amp;#34;&lt;/span&gt; -c rebase.usebuiltin=true rebase HEAD^
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Or if you want to use your terminal more maybe try this?&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;mkdir 123
-git init 123
-cd 123
-touch a1
-git add a1
-git commit -m a1 a1
-&lt;span style=&#34;color:#00f&#34;&gt;for&lt;/span&gt; i in 2 3 4; &lt;span style=&#34;color:#00f&#34;&gt;do&lt;/span&gt; touch a$i; git add a$i; git commit -m a$i a$i; &lt;span style=&#34;color:#00f&#34;&gt;done&lt;/span&gt;
-cd ..
-./git --exec-path=$PWD -C 123 -c rebase.usebuiltin=true rebase HEAD~
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Did you get a message saying &lt;code&gt;warning: TODO&lt;/code&gt;? Well it&#39;s because the &lt;code&gt;apply_autostash()&lt;/code&gt; hasn&#39;t been implemented yet&amp;hellip;
-Modifying this and making it run will be handled in later patch.&lt;/p&gt;
-&lt;p&gt;Well if you try &lt;code&gt;echo $?&lt;/code&gt; it returns 0 which is a proof of saying that our code works till that point i.e. until the &lt;code&gt;apply_autostash()&lt;/code&gt;. Still lots of environment variables need to be set. There&#39;s still _a_lot_ to do as we are moving steadily towards a working builtin rebase. The full rebase as promised is very hard to reach as it requires lots and lots of configurations and coding. Time will tell how much I can complete in this GSoC time period and with every week the code is somewhat progressing towards something awesome. :-)&lt;/p&gt;
-&lt;p&gt;There are lots of awesome things going on here which I&#39;ll explain in the blog post where I&#39;ll breakdown every functions and total internal workings of my code of builtin rebase.&lt;/p&gt;
-&lt;p&gt;Oh and one important thing if you want to have a collaborative coding session but are waiting for some positive review to try &lt;a href=&#34;https://code.visualstudio.com/blogs/2017/11/15/live-share&#34;&gt;Visual Studio Live Share&lt;/a&gt;.
-You have mine. It works nicely. Though it&#39;s still in preview and lots of improvements are needed, it&#39;s very usable and get you more productive.&lt;/p&gt;
-&lt;p&gt;That&#39;s it for this week. Stay tuned.&lt;/p&gt;
-</description>
-		</item>
-		<item>
-			<title>Week 06 Progress</title>
-			<link>https://prertik.github.io/post/week-06/</link>
-			<pubDate>Mon, 11 Jun 2018 00:00:00 +0000</pubDate>
-			<guid isPermaLink="true">https://prertik.github.io/post/week-06/</guid>
-			<description>&lt;p&gt;Hi everyone.&lt;/p&gt;
-&lt;p&gt;Hope all of you readers had a great weekend. This week I worked on emulating &lt;code&gt;run_specific_rebase ()&lt;/code&gt; which is in &lt;a href=&#34;https://github.com/git/git/blob/master/git-rebase.sh#L203-L222&#34;&gt;git-rebase.sh&lt;/a&gt;. Firstly, I have tried to emulate specifically, this shell script:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;. git-rebase--$type
-git_rebase__$type&lt;span style=&#34;color:#a31515&#34;&gt;${&lt;/span&gt;preserve_merges:+__preserve_merges&lt;span style=&#34;color:#a31515&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The work in progress patch of this conversion can be found &lt;a href=&#34;https://github.com/git/git/pull/505&#34;&gt;here&lt;/a&gt;. The patch isn&#39;t ready as &lt;code&gt;apply_autostash()&lt;/code&gt; function need some extra working. To make it working slight modifications to &lt;a href=&#34;https://github.com/git/git/blob/master/sequencer.c&#34;&gt;sequencer.c&lt;/a&gt; is required which will be done in the coming days.&lt;/p&gt;
-&lt;p&gt;In other news, a &lt;a href=&#34;https://public-inbox.org/git/20180607171344.23331-1-newren@gmail.com/&#34;&gt;patch&lt;/a&gt; which landed on the mailing list is interesting. This patch will surely affect my current plan but this patch can help me to convert all modes into builtin code more easily than originally planned.&lt;/p&gt;
-&lt;p&gt;That&#39;s a wrap-up for this week. Stay tuned for next week.&lt;/p&gt;
-&lt;p&gt;Some Git jokes:&lt;/p&gt;
-&lt;p&gt;Why did the commit cross the rebase?
-To git to the other repo.&lt;/p&gt;
-&lt;p&gt;A branch, a tag, and a reflog walk into a bar. The bartender says, &amp;ldquo;What is this, some sort of rebase?&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;More jokes can be found &lt;a href=&#34;https://github.com/EugeneKay/git-jokes&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-</description>
-		</item>
-		<item>
-			<title>Week 05 Progress</title>
-			<link>https://prertik.github.io/post/week-05/</link>
-			<pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
-			<guid isPermaLink="true">https://prertik.github.io/post/week-05/</guid>
-			<description>&lt;p&gt;Hello everyone,&lt;/p&gt;
-&lt;p&gt;This week I have been working on migrating small shell scripting component to C builtin. The work will be towards parsing a small modular component so that it can directly be used. With the development of my current patch, the rebase built-in that I will work on can do a super simple rebase.&lt;/p&gt;
-&lt;p&gt;I might be able to demonstrate something in 2-3 days.&lt;/p&gt;
-&lt;p&gt;That&#39;s a wrap up for this week.&lt;/p&gt;
-</description>
-		</item>
-		<item>
-			<title>Week 03 and Week 04 Progress</title>
-			<link>https://prertik.github.io/post/week-03/</link>
-			<pubDate>Mon, 28 May 2018 00:00:00 +0000</pubDate>
-			<guid isPermaLink="true">https://prertik.github.io/post/week-03/</guid>
-			<description>&lt;p&gt;Hi everyone,&lt;/p&gt;
-&lt;p&gt;Sorry for the late blog. There wasn&#39;t more action on week 03 and there was some action on week 04 *finally*. So, I had to merge both.&lt;/p&gt;
-&lt;p&gt;Oh and a note to the readers, the previously assured Part II of Git Rebase will take some time as I plan to explain you the workings from the rebase builtin I will create. :-)&lt;/p&gt;
-&lt;p&gt;So, during these two weeks, a skeletal for rebase builtin was created. What&#39;s a skeletal? Well, it&#39;s a placeholder for the future rebase or the builtin rebase which will be the default when it gets there. There were some discussions on it, as can be seen from the initial &lt;a href=&#34;https://github.com/git/git/pull/497&#34;&gt;pull-request&lt;/a&gt;. This is the beauty of open-source. Every awesome developers around the globe are on board to create awesome software to make life more easier. This is what most proprietary software lack. That&#39;s why they are buggy and crash while Git runs seamlessly.&lt;/p&gt;
-&lt;p&gt;So, after few discussions with the mentors, Christian Couder, Stefan Beller and Johannes Schindelin, we finally agreed to an approach to make rebase into a buitlin proposed by Johannes which is similar to the technique he applied to create difftool to a builtin. You can find the new commit following this approach &lt;a href=&#34;https://github.com/git/git/pull/497/commits/41531d0ba88cfe20e870d57ee437d0fcd7d05064&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;This new technique currently falls back to the &lt;code&gt;legacy-rebase&lt;/code&gt; which is a fancy term given to the rebase script file currently active. But, offers a configuration to run this builtin &lt;code&gt;rebase.useBuiltin&lt;/code&gt; for future testing. There will be some extra functionalities to accommodate with this feature in the coming days, hopefully.&lt;/p&gt;
-&lt;p&gt;That&#39;s a wrap for this week. More to follow next week and once again I apologize for the lateness for this blog post.&lt;/p&gt;
-</description>
-		</item>
-		<item>
-			<title>Git Inside® Part I: Don&#39;t Fear the Rebase</title>
-			<link>https://prertik.github.io/post/git-inside/</link>
-			<pubDate>Thu, 10 May 2018 00:00:00 +0000</pubDate>
-			<guid isPermaLink="true">https://prertik.github.io/post/git-inside/</guid>
-			<description>&lt;p&gt;Ok, you&#39;ve read my previous Git blog. There were nice feedback in the &lt;a href=&#34;https://public-inbox.org/git/CAH5451mJO3Bgg9DST57fqcGGU-SPrcSECjXi0qOqeKsW0uaRzg@mail.gmail.com/&#34;&gt;mailing list&lt;/a&gt; and in emails and IRC. This week I did a close study on &lt;code&gt;git-rebase.&lt;/code&gt;
-There are _a_lot_of_posts_ about &lt;a href=&#34;https://git-scm.com/docs/git-rebase&#34;&gt;&lt;code&gt;git-rebase&lt;/code&gt;&lt;/a&gt; which talk of benefits of rebase and some are negative towards rebase.
-By convention, it is understood that &lt;code&gt;rebase&lt;/code&gt; is harder to understand for beginners that&#39;s why most will prefer merging. Even Github has merging of pull requests by default and to do rebase and merge you&#39;ll have to select it from the drop-down menu in the pull-requests section.&lt;/p&gt;
-&lt;p&gt;Don&#39;t be afraid of rebase and after reading this, think of all the things you could have done if you had known rebase.&lt;/p&gt;
-&lt;p&gt;After understanding the power of rebase and use it to make your branches more cleaner and linear. You will be the cool one.&lt;/p&gt;
-&lt;figure&gt;
-    &lt;img src=&#34;https://prertik.github.io/static/tenor.gif&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Ok, let&#39;s de-structure &lt;code&gt;git-rebase&lt;/code&gt;. The general idea of rebase is that it is used to reapply commits on top of another base tip.
-Suppose, you&#39;re working in a tech company which has many Engineers and your choice of DVCS is Git. Now, to introduce new features, the developers will work in their own feature branch which has to be merged someday or rebased into the master.&lt;/p&gt;
-&lt;p&gt;Suppose, the structure of the branch is:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;M0---M1---M2 master
-  \
-   \
-    \
-     B1---B2 feature
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now, you&#39;re base branch is M0 and the developers based their feature branch B1 on it. But, since there is always development going on in a tech company. The master branch gradually develops to M1 and M2. While the feature branch also gradually develops to B2. The developers will find certain aspects have changed in the code base and they need to keep up with the master branch.
-Hence they will do,&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git rebase master
-git rebase master feature
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The structure of the branch now changes to:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;M0---M1---M2 master
-           \
-            \
-             \
-              B1&amp;#39;---B2&amp;#39; feature
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now, life goes on, hence, more code is written and branches keep on growing. Assume the structure after some time:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;M0---M1---M2---M3---B3&amp;#39;---M4---M5---M6---M7 master
-           \
-            \
-             \
-              B1&amp;#39;---B2&amp;#39;---B3---B4---B5 feature
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now, again the developers will rebase. But, this time let&#39;s assume feature B3 was crucial for master and was already sent as a patch via mail and it was merged into master. While rebasing it will be automatically skipped.
-The new structure becomes:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;M0---M1---M2---M3---B3&amp;#39;---M4---M5---M6---M7 master
-                                          \
-                                           \
-                                            \
-                                             B1&amp;#39;---B2&amp;#39;---B4&amp;#39;---B5&amp;#39; feature
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;As you can see rebase creates a much more linear structure. This creates a neat and clean patch series which is easy for reviewer to review. The patches sent are all on the current state of master and is optimized for reviewing.&lt;/p&gt;
-&lt;p&gt;If you had to do the same process but merging at each step instead of rebasing i.e. doing repeated merges. The structures would roughly become:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;M0---M1---M2------M3---M4---M5---M6---M7
- \         \       \                   \
-  \         \       \                   \
-   \         \       \                   \
-    B1---B2---C1--B3--C2---B4---B5--------C3
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;C1, C2, C3 denote the merge with additional merge commits that are done for every merge. This is quite difficult for reviewer to check as multiple changes are tested in the master brought by multiple changes. All the changes must be understood by reviewer and hence, must analyze the older version of master to analyze the changes brought by the new branches.&lt;/p&gt;
-&lt;p&gt;The information on merge remain as-is. But, the history of rebase gets omitted in the process. I do not imply that the commits are lost but the useful record which might show how the rebased patches are related to original patches are not present.&lt;/p&gt;
-&lt;p&gt;Another important thing that can be done via rebase is we can transplant a branch based on one branch to another branch. This is done via &lt;code&gt;rebase --onto&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Let&#39;s assume, you&#39;re working on a mobile app project. You have a basic login phase for the app. A team is working on an experimental branch to introduce new cool features. You fork the experimental branch to make login cooler by adding facial recognition login rather than just plain login.
-The structure might look like this:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;o---o---o---o---o---o  master
-     \
-      o---o---o---o---o  experimental
-                       \
-                        o---o---o  facial_recognition
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now, your team working on facial recognition make a breakthrough and the functionality is ready for production but, unluckily many works in experimental branch is still a work in process. So, what do you do in this situation?
-Well, &lt;code&gt;git rebase&lt;/code&gt; has magical voodoo to handle this situation.
-You do&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git rebase --onto master experimental facial_recognition
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If there are no conflicts. This will handle the task perfectly and the structure now looks something like this:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;o---o---o---o---o---o---o  master
-    |                     \
-    |                      o&amp;#39;---o&amp;#39;---o&amp;#39; facial_recognition
-     \
-      o---o---o---o---o  experimental
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This is what you wanted. Cool, right?&lt;/p&gt;
-&lt;p&gt;What if there were conflicts. Well, rebase will stop at first conflicting commit and leave commit markers in the tree. Use &lt;code&gt;git diff&lt;/code&gt; and locate &lt;code&gt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&lt;/code&gt; markers to find the problem.
-After editing the conflicting files do&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git add &amp;lt;filename&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If the conflict is resolved then, do&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git rebase --continue
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To undo the git rebase&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git rebase --abort
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Much more configurations and options are available for rebase. Do checkout the git-rebase &lt;a href=&#34;https://git-scm.com/docs/git-rebase&#34;&gt;docs&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;interactive-rebase&#34;&gt;Interactive rebase&lt;/h2&gt;
-&lt;p&gt;Now, onward to another awesome rebase option &lt;code&gt;rebase  -i&lt;/code&gt; which is generally said as &amp;ldquo;Interactive rebase mode&amp;rdquo;. With interactive mode, you can edit the commits which are rebased, re-order the commits and remove them if unwanted or bad patches.&lt;/p&gt;
-&lt;p&gt;Interactive mode is preferable to use for the following workflow:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;1. you have a wonderful idea
-2. you want to hack the code and you do
-3. prepare a series for submission
-4. submit
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Interactive rebase can be more powerful than automatic rebase in certain scenarios as it can be used to alter commits as they are moved to new branch and offers complete control over the branch&#39;s commit history. It will help to clean up a messy history before merging a feature into master.&lt;/p&gt;
-&lt;p&gt;An example of interactive rebase:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git checkout experimental
-git rebase -i master
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will open the editor of your choice. Mine is Emacs. The editor will show listings of all the commits:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;pick 44d5c7a Message for commit #1
-pick ******* Message for commit #2
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now can you change the pick command or reorder the entries to modify the branch&#39;s history.
-Alternatively, you can merge two commits as a single commit if they portray the same message for similar change. This can be done via&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git commit --fixup &amp;lt;commit&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After saving and closing the file, Git will perform the rebase according to your instructions and you&#39;re the incharge in interactive mode while rebase handles automatically for you. This is a unique feature.&lt;/p&gt;
-&lt;p&gt;You can also split commits using interactive mode. You can add commits or split a commit into two.
-To do this do the following:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Do&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git rebase -i &amp;lt;commit&amp;gt;^
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;where the &lt;code&gt;&amp;lt;commit&amp;gt;&lt;/code&gt; is the commit you want to split.&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;
-&lt;p&gt;Mark the commit with action &amp;ldquo;edit&amp;rdquo;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Execute&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git reset HEAD^
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;Now add changes to the index that you want to have as first commit and do&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git add -i or git gui
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;5&#34;&gt;
-&lt;li&gt;
-&lt;p&gt;Commit the now-current index.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Repeat 4 and 5 until the working tree is clean.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Continue rebase with&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git rebase --continue
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;There is also an important case where you need to recover from upstream rebase. The rebase &lt;a href=&#34;https://git-scm.com/docs/git-rebase#_recovering_from_upstream_rebase&#34;&gt;doc&lt;/a&gt; details nicely and enough for understanding it. Don&#39;t miss it.&lt;/p&gt;
-&lt;p&gt;There are people&#39;s different opinions regarding rebase and merge. People claim one is better than the other. But, rather than claiming superiority of one over another and creating another flame war, we must embrace both as both are very important for varying situations. The amazing thing about Git is it doesn&#39;t force one more over another. It does what the maintainer prefers. So, using one over another is a matter of taste and may be due to certain cases but, claiming never to use one and always use another one because it is better is doing un-justice to the tooling and missing out on a great tool.&lt;/p&gt;
-&lt;p&gt;With that said, let&#39;s look onto the scenarios where you can use Rebase or the cases for using Rebasing.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Never use rebase on public branches.
-Never rebase the master branch onto your feature branch. Since, this will only trigger change in your repository and everyone will be working on original master. You will need to synchronize your master branch with the original one i.e. merge them back together because your master branch history has diverged from everybody else&#39;s. You will need two sets of commits that does the same change to fix and can be very confusing. So, think carefully before running &lt;code&gt;git rebase&lt;/code&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Be careful or omit &lt;code&gt;--force&lt;/code&gt; flag in pushing a rebased master branch into remote repository.
-Only use &lt;code&gt;--force&lt;/code&gt; flag if you know what you&#39;re doing. The conflict messages are there to help you find the errors. One of the only times you might need to force-push is when you&#39;ve performed a local cleanup after you&#39;ve pushed a private feature branch to a remote repository.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;best-cases-for-rebase-use&#34;&gt;Best cases for Rebase use:&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;In a local cleanup. By using interactive rebase and coding you can make sure each commit in your feature is focused and meaningful. Introducing &lt;code&gt;git-rebase&lt;/code&gt; into your workflow affects local branches and other developers only can see your finished product which is clean and has easier to understand branch history. But, this is only applicable for private branches.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Integrating an approved feature. If a new feature is approved by your team, you can rebase the feature onto the tip of the master branch before merging the feature onto the main code. If you rebase before the merge, the merge will be fast-forwarded and will result in a perfectly linear history. This also helps to squash any follow-up commits added during a pull request.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;After making a pull request, you mustn&#39;t do &lt;code&gt;git rebase&lt;/code&gt; as it becomes a public branch for others to review the code. Hence, before submitting the pull request/s, it is better to use interactive rebase to clean up the code.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;There is another important flag &lt;code&gt;-p&lt;/code&gt; or &lt;code&gt;--preserve-merges&lt;/code&gt; which you can use with rebase.&lt;code&gt;--preserve-merges&lt;/code&gt; will recreate merge commits instead of flattening the history. It will replay commits a merge commit introduces. The merge conflict resolutions are not preserved. &lt;code&gt;--preserve-merges&lt;/code&gt; uses &lt;code&gt;--interactive&lt;/code&gt; internally and combining it with &lt;code&gt;--interactive&lt;/code&gt; option while rebasing can trigger a bug present which can produce dubious results when re-ordering the commits. The bug detail can be found &lt;a href=&#34;https://git-scm.com/docs/git-rebase#_bugs&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/dscho&#34;&gt;Johannes Schindelin&lt;/a&gt; has also worked in &lt;code&gt;--recreate-merges&lt;/code&gt; option which is still in review process and in &lt;code&gt;pu&lt;/code&gt; branch in git repository as of now. This option is an alternative to &lt;code&gt;--preserve-merges&lt;/code&gt; and is created to deprecate it. @dscho has written clear detail of the working of &lt;code&gt;--recreate-merges&lt;/code&gt; in the &lt;a href=&#34;https://public-inbox.org/git/71c42d6d3bb240d90071d5afdde81d1293fdf0ab.1516225925.git.johannes.schindelin@gmx.de/&#34;&gt;mailing list&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;All in all both merging and rebasing are equally important. Rebase is an awesome tool we&#39;re lucky to have in our toolbox. Some might complain that they had to bisect through several hundred commits to track down the bug which was introduced due to a faulty rebase. To prevent these problems, one of my mentor during this GSoC, &lt;a href=&#34;https://twitter.com/christiancouder&#34;&gt;Christian Couder&lt;/a&gt; &lt;a href=&#34;http://colabti.org/irclogger/irclogger_log/git-devel?date=2018-05-06&#34;&gt;pointed&lt;/a&gt; out that using &lt;code&gt;git rebase --exec make master&lt;/code&gt; it&#39;s possible to check that each commit from master to the tip of the current branch builds. So, rebase can help people check that rebase did not introduce bugs. He also pointed out that using rebase with &lt;code&gt;--exec&lt;/code&gt;, we can run tests for each commit while using rebase.&lt;/p&gt;
-&lt;p&gt;It&#39;s all about tastes of developers. But, having and using the rebase tool present in our Git toolbox can simplify many tasks and is perfectly suited for certain cases.&lt;/p&gt;
-&lt;p&gt;This post was about the philosophy and general idea behind &amp;ldquo;rebase&amp;rdquo; and the follow-up post will be of breaking down of the current script file of &lt;code&gt;git-rebase.sh&lt;/code&gt; and show how that can be made a built-in.&lt;/p&gt;
-&lt;p&gt;With this my research phase is done and will now start implementing changes. You can find me in &lt;code&gt;# git-devel&lt;/code&gt; as &amp;ldquo;prertik&amp;rdquo;.&lt;/p&gt;
-&lt;p&gt;Shout out to all the awesome developers behind Git.&lt;/p&gt;
-&lt;figure&gt;
-    &lt;img src=&#34;https://prertik.github.io/static/applause.gif&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Thanks to &lt;a href=&#34;https://twitter.com/christiancouder&#34;&gt;Christian Couder&lt;/a&gt; and &lt;a href=&#34;https://twitter.com/jschindelin&#34;&gt;Johannes Schindelin&lt;/a&gt; for helping me research on git-rebase.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://blog.pa1ch.fr/posts/2018/05/05/en/gsoc2018-week-1.html&#34;&gt;Alban Gruin&lt;/a&gt; is working on converting interactive rebase to C and &lt;a href=&#34;https://ungps.github.io&#34;&gt;Paul-Sebastian Ungureanu&lt;/a&gt; is working on converting &lt;code&gt;git stash&lt;/code&gt; to built-in during this GSoC. Do check out their blogs.&lt;/p&gt;
-&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
-&lt;p&gt;Thanks to Christian for sharing the awesome blogs by &lt;a href=&#34;http://softwareswirl.blogspot.com/2009/08/rebase-with-history-implementation.html&#34;&gt;Michael Haggerty&lt;/a&gt; who is one of the top committer on Git and has written an awesome tool &lt;a href=&#34;http://softwareswirl.blogspot.fr/2013/05/git-imerge-practical-introduction.html&#34;&gt;git-imerge&lt;/a&gt; which introduces some awesome ideas.&lt;/p&gt;
-&lt;p&gt;_a_lot_of_posts_regarding_rebase_:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;(&lt;a href=&#34;https://www.atlassian.com/git/tutorials/merging-vs-rebasing&#34;&gt;https://www.atlassian.com/git/tutorials/merging-vs-rebasing&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;(&lt;a href=&#34;https://medium.com/@fredrikmorken/why-you-should-stop-using-git-rebase-5552bee4fed1&#34;&gt;https://medium.com/@fredrikmorken/why-you-should-stop-using-git-rebase-5552bee4fed1&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;(&lt;a href=&#34;https://nathanleclaire.com/blog/2014/09/14/dont-be-scared-of-git-rebase/&#34;&gt;https://nathanleclaire.com/blog/2014/09/14/dont-be-scared-of-git-rebase/&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;(&lt;a href=&#34;https://www.derekgourlay.com/blog/git-when-to-merge-vs-when-to-rebase/&#34;&gt;https://www.derekgourlay.com/blog/git-when-to-merge-vs-when-to-rebase/&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-		</item>
-		<item>
-			<title>Git: An Unexpected Journey</title>
-			<link>https://prertik.github.io/post/git-an-unexpected-journey/</link>
-			<pubDate>Tue, 01 May 2018 06:00:00 +0000</pubDate>
-			<guid isPermaLink="true">https://prertik.github.io/post/git-an-unexpected-journey/</guid>
-			<description>&lt;p&gt;This summer of &amp;lsquo;18, I&#39;ll be working in Git. Git is an insanely
-awesome software. I still remember the day I learned about Git via
-Github and instantly got hooked. Git isn&#39;t just an everyday software
-you encounter, just look at the documentation and observe closely
-how it works and you will understand the rock solid design.
-Enough with Git introduction already. There are &lt;em&gt;too&lt;/em&gt; &lt;em&gt;much&lt;/em&gt; posts
-describing Git already.&lt;/p&gt;
-&lt;h2 id=&#34;sending-patches&#34;&gt;Sending Patches&lt;/h2&gt;
-&lt;p&gt;Rather than going to the theory of Git, lets learn how to send patch
-to Git. Sending patches to Git is different than sending patches to
-other JS Frameworks, Game Engines, etc. You don&#39;t use Github to send
-patches to Git. &lt;a href=&#34;https://github.com/git/git/blob/master/Documentation/SubmittingPatches&#34;&gt;Documentation/SubmittingPatches&lt;/a&gt;
-already contains a great deal of information for anybody to learn
-how to send patch.
-But, let me summarize it.&lt;/p&gt;
-&lt;p&gt;Ok, you&#39;ve modified some code. You check it and believe it doesn&#39;t break
-anything else. You run tests on it. It looks good. You follow the
-standard C writing guideline. So, you decide to send it.
-First you must do is fire up terminal and run &lt;code&gt;git diff --check&lt;/code&gt;.
-If you don&#39;t see anything there, it&#39;s good you have not introduced
-whitespaces in your code. But, if you do see codes there fix
-those whitespaces. Git community is picky about whitespaces.&lt;/p&gt;
-&lt;p&gt;Now, is the right time to run some tests. Always remember to test your
-changes. Running test suite provided in Git is the most preferred but
-if your change introduces something new, you can write a new test.
-There are two kinds of tests you can do:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Functional tests: These are the core Git tests. These test scripts
-are mandatory to be run for changes and test must pass to introduce
-new patch. The easiest way to run all the tests is navigate to &lt;code&gt;/t&lt;/code&gt;
-directory and run &lt;code&gt;make&lt;/code&gt;. Another way is to run with any &lt;a href=&#34;https://testanything.org/&#34;&gt;TAP harness&lt;/a&gt;.
-You can parallel test by using prove.
-&lt;code&gt;$ prove --timer --jobs 15 ./t[0-9]*.sh&lt;/code&gt;
-You can also run single test by running the shell script with a name
-like &lt;code&gt;tNNNN-descriptor.sh&lt;/code&gt;. If new functionality is added by you then
-unit tests need to be created by creating helper commands which have
-limited action. Keep these in &lt;code&gt;t/helpers&lt;/code&gt;. To add helper add a line to
-&lt;code&gt;t/Makefile&lt;/code&gt; and to &lt;code&gt;.gitignore&lt;/code&gt; for the binary file you added. The Git
-community prefers functional tests using the full git executable, so try
-to exercise your new code using git commands before creating a test helper.
-To find out why a test failed, repeat the test with the -x -v -d -i options
-and then navigate to the appropriate &amp;ldquo;trash&amp;rdquo; directory to see the data shape
-that was used for the test failed step. More information can be found in &lt;a href=&#34;https://github.com/git/git/blob/master/t/README&#34;&gt;t/README&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Performance tests: If your changes improve performance or if your patch
-can affect performance, you need to run the tests in &lt;code&gt;t/perf&lt;/code&gt;. To check the
-change in performance use &lt;code&gt;t/perf/run&lt;/code&gt; script.
-More information about performance tests can be found in this awesome guideline
-written in Git for Windows &lt;a href=&#34;https://github.com/git-for-windows/git/blob/master/CONTRIBUTING.md#performance-tests&#34;&gt;Contributing document&lt;/a&gt;
-which is applicable for both Linux and Windows.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Then run &lt;code&gt;git log &amp;lt;file you modified&amp;gt;&lt;/code&gt; and see all the changes you made.
-Now, think of good commit message. This is very important as it
-describes the maintainers what you are fixing. Write the first line
-of the commit message with a short description of about 50 characters.
-Also, prefix is needed for the first line like:
-&lt;code&gt;test: avoid pipes in git related commands for test&lt;/code&gt;
-Now, in after the short description, you should write a lengthier
-commit message describing the changes you made. The commit message
-should be in imperative mood. e.g. &amp;ldquo;avoid using pipes &amp;hellip;&amp;quot;.
-This should be very descriptive and very clear of what you&#39;ve done.
-Also, remember to sign-off your patch. Run &lt;code&gt;git commit &amp;lt;files&amp;gt; -s&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Now, time to generate your patch. Git has a tool for generating patches.
-Cool, right? Run &lt;code&gt;git format-patch HEAD~&lt;/code&gt; to generate a single patch
-for your changes. If your change is of only a single type i.e. change
-in typo in different files then, only generate a single file. But, if
-your changes are in different files of different nature then, run
-&lt;code&gt;git format-patch HEAD~&amp;lt;number of commits to convert to patches&amp;gt;&lt;/code&gt;.
-Remember you&#39;ll need multiple commits if you&#39;ve changed multiple files
-differently e.g. you changed a test file for typo and &lt;code&gt;git-rebase.sh&lt;/code&gt;
-to add some extra functionalities, then you have to write two commit
-messages describing both changes.
-Now, a patch file or multiple patch files will be generated depending
-on your changes. You can apply this patchfile by running &lt;code&gt;git am &amp;lt;patchfile&amp;gt;&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Now, time to send to patch to the mailing list. Git has a tool for this
-too. Run &lt;code&gt;git send-email &amp;lt;your-patch-file&amp;gt;&lt;/code&gt;. Now, to use send-email, you need
-to set up your mailing id and format message with the mail. This should be
-in plain text. Follow &lt;a href=&#34;https://git-scm.com/docs/git-send-email&#34;&gt;git send-email documentation&lt;/a&gt;
-closely. This explains everything in much more detail.
-Your patch now, goes through lot of review process. Follow closely,
-discuss with the community, understand and acknowledge their comments.
-Write quality codes rather than large quantity.&lt;/p&gt;
-&lt;h2 id=&#34;gsoc-18&#34;&gt;GSoC &amp;lsquo;18&lt;/h2&gt;
-&lt;p&gt;So, in this GSoC timeline. I&#39;ll be working to make &lt;code&gt;git rebase&lt;/code&gt; a builtin.
-i.e. &lt;code&gt;git rebase&lt;/code&gt; is previously written in shell scripts. My job is to convert
-it into C.
-Why is this necessary one might ask.
-Well, Many components of Git are still in the form of shell and Perl scripts.
-This has certain advantages of being extensible but causes problems in production
-code on multiple platforms like Windows. I&#39;m going to rewrite a couple of shell
-and perl scripts into portable and performant C code, making them built-ins.
-The major advantage of doing this is improvement in efficiency and performance.&lt;/p&gt;
-&lt;p&gt;So, what does rebase do?
-There&#39;s a cool beginner friendly introduction to rebase &lt;a href=&#34;https://dev.to/maxwell_dev/the-git-rebase-introduction-i-wish-id-had&#34;&gt;here&lt;/a&gt;
-Or, you can follow, &lt;a href=&#34;https://git-scm.com/docs/git-rebase&#34;&gt;git-rebase documentation&lt;/a&gt;.
-I&#39;m not going to explain again here as it is already done in a much
-better way in both the git documentation and the post.
-Now, this is just a beginning post. I will be updating and keeping
-a series of what I learn from Git. I will be writing every week.
-This will be a great journey.&lt;/p&gt;
-&lt;p&gt;Ah, nearly forgot to mention. If all of our patches in GSoC &amp;lsquo;18 gets
-merged into Git. Git will be fast. How fast you might ask? Time will tell.&lt;/p&gt;
-&lt;figure&gt;
-    &lt;img src=&#34;https://prertik.github.io/static/sanic.png&#34;/&gt; 
-&lt;/figure&gt;
-
-</description>
-		</item>
-	</channel>
+  <channel>
+    <title>c on (recur code)</title>
+    <link>https://prertik.github.io/tags/c/</link>
+    <description>Recent content in c on (recur code)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Copyright notice</copyright>
+    <lastBuildDate>Mon, 06 Aug 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://prertik.github.io/tags/c/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Week 13 - the last week of GSoC Work period!</title>
+      <link>https://prertik.github.io/post/week-13-the-last-week/</link>
+      <pubDate>Mon, 06 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://prertik.github.io/post/week-13-the-last-week/</guid>
+      <description>Hello everyone, Sorry for the late post as you know I have been very busy lately giving finishing touches to the builtin/rebase.c. Yes, you read it right. We have a complete rebase.c, it has some nits still, as some tests particularly t5520 and t7406 are not passing but the good news is, the tests t34* are passing. Yipee!
+Regarding the status on the mailing list, after some regression tests suggested by @dscho, we found out that certain key changes need to be done to v5, so I requested the Git maintainer to hold it for some time i.</description>
+    </item>
+    
+    <item>
+      <title>Week 11 and Week 12 merge!</title>
+      <link>https://prertik.github.io/post/week-11/</link>
+      <pubDate>Sat, 21 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://prertik.github.io/post/week-11/</guid>
+      <description>Hello everyone, How are you?
+I apologize for not updating my blog post the previous week.
+So, on week 11, if you had followed my week 10 post, you would think by this time I will have gotten all the options of the rebase. Well, my week technically started by cleaning all the options to create them as separate commits and polish them for reviewing. Why is that more important? Well, it&#39;s because every reviewer is a human being and it&#39;s a natural tendency to review a lot of smaller things rather than a big monolithic one.</description>
+    </item>
+    
+    <item>
+      <title>Week 10 Progress</title>
+      <link>https://prertik.github.io/post/week-10/</link>
+      <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://prertik.github.io/post/week-10/</guid>
+      <description>Hello from Kathmandu where it has been raining a lot!
+This week also there were some development on rebase land!
+Continuing form the past week blog post, I submitted newer iterations of patch. Well, after some excellent review, the patch seemed to need some important changes, it was merged into pu but a re-roll is expected to fix some issues in it. New iteration of this patch series will take some time to arrive.</description>
+    </item>
+    
+    <item>
+      <title>Week 09 Progress</title>
+      <link>https://prertik.github.io/post/week-09/</link>
+      <pubDate>Tue, 03 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://prertik.github.io/post/week-09/</guid>
+      <description>Hi,
+This week I submitted patch v1 ,[v2] (https://public-inbox.org/git/20180702091509.15950-1-predatoramigo@gmail.com/) and am working on v3. On the other hand, there are other works going on towards converting the options of git-rebase.sh. Currently, the options supported are --onto, --quiet, --verify, --continue and support for an upstream that is actually a symmetric range i.e. &amp;lt;rev1&amp;gt;...&amp;lt;rev2&amp;gt; is also done.
+All of these progress can be seen from pull requests. Cleanup and addition of proper message will be done in the coming days.</description>
+    </item>
+    
+    <item>
+      <title>Week 08 Progress</title>
+      <link>https://prertik.github.io/post/week-08/</link>
+      <pubDate>Mon, 25 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://prertik.github.io/post/week-08/</guid>
+      <description>Hello Everyone.
+This is week was awesome. Though there were some difficulties due to electricity cuts, cool improvements were made to the previous patch series. The patch series I&#39;m working on hit a milestone. Now, it can perform a real rebase. Of course, the environment variables are kept default and this might introduce bugs but for development purposes; to see real development, this is one amazing way. There was also some work on refactoring out codes from sequencer.</description>
+    </item>
+    
+    <item>
+      <title>Week 07 Progress</title>
+      <link>https://prertik.github.io/post/week-07/</link>
+      <pubDate>Tue, 19 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://prertik.github.io/post/week-07/</guid>
+      <description>Hello everyone.
+This week there was lots of progress in builtin rebase. Lots of thanks to Johannes Schindelin, without him the patch wouldn&#39;t be in current state. Rather than work on emulating smaller functions from git-rebase.sh like I explained previously in my blog post. Me and Dscho went a lot farther and implemented a super simple rebase. You can find the code here. If you&#39;re feeling adventurous get the code and run some rebase tasks.</description>
+    </item>
+    
+    <item>
+      <title>Week 06 Progress</title>
+      <link>https://prertik.github.io/post/week-06/</link>
+      <pubDate>Mon, 11 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://prertik.github.io/post/week-06/</guid>
+      <description>Hi everyone.
+Hope all of you readers had a great weekend. This week I worked on emulating run_specific_rebase () which is in git-rebase.sh. Firstly, I have tried to emulate specifically, this shell script:
+. git-rebase--$type git_rebase__$type${preserve_merges:+__preserve_merges} The work in progress patch of this conversion can be found here. The patch isn&#39;t ready as apply_autostash() function need some extra working. To make it working slight modifications to sequencer.c is required which will be done in the coming days.</description>
+    </item>
+    
+    <item>
+      <title>Week 05 Progress</title>
+      <link>https://prertik.github.io/post/week-05/</link>
+      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://prertik.github.io/post/week-05/</guid>
+      <description>Hello everyone,
+This week I have been working on migrating small shell scripting component to C builtin. The work will be towards parsing a small modular component so that it can directly be used. With the development of my current patch, the rebase built-in that I will work on can do a super simple rebase.
+I might be able to demonstrate something in 2-3 days.
+That&#39;s a wrap up for this week.</description>
+    </item>
+    
+    <item>
+      <title>Week 03 and Week 04 Progress</title>
+      <link>https://prertik.github.io/post/week-03/</link>
+      <pubDate>Mon, 28 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://prertik.github.io/post/week-03/</guid>
+      <description>Hi everyone,
+Sorry for the late blog. There wasn&#39;t more action on week 03 and there was some action on week 04 *finally*. So, I had to merge both.
+Oh and a note to the readers, the previously assured Part II of Git Rebase will take some time as I plan to explain you the workings from the rebase builtin I will create. :-)
+So, during these two weeks, a skeletal for rebase builtin was created.</description>
+    </item>
+    
+    <item>
+      <title>Git Inside® Part I: Don&#39;t Fear the Rebase</title>
+      <link>https://prertik.github.io/post/git-inside/</link>
+      <pubDate>Thu, 10 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://prertik.github.io/post/git-inside/</guid>
+      <description>Ok, you&#39;ve read my previous Git blog. There were nice feedback in the mailing list and in emails and IRC. This week I did a close study on git-rebase. There are _a_lot_of_posts_ about git-rebase which talk of benefits of rebase and some are negative towards rebase. By convention, it is understood that rebase is harder to understand for beginners that&#39;s why most will prefer merging. Even Github has merging of pull requests by default and to do rebase and merge you&#39;ll have to select it from the drop-down menu in the pull-requests section.</description>
+    </item>
+    
+    <item>
+      <title>Git: An Unexpected Journey</title>
+      <link>https://prertik.github.io/post/git-an-unexpected-journey/</link>
+      <pubDate>Tue, 01 May 2018 06:00:00 +0000</pubDate>
+      
+      <guid>https://prertik.github.io/post/git-an-unexpected-journey/</guid>
+      <description>This summer of &amp;lsquo;18, I&#39;ll be working in Git. Git is an insanely awesome software. I still remember the day I learned about Git via Github and instantly got hooked. Git isn&#39;t just an everyday software you encounter, just look at the documentation and observe closely how it works and you will understand the rock solid design. Enough with Git introduction already. There are too much posts describing Git already.</description>
+    </item>
+    
+  </channel>
 </rss>
