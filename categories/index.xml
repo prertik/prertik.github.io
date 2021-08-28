@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Categories on (recur code)</title>
+		<link>https://prertik.com/categories/</link>
+		<description>Recent content in Categories on prertik.com</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>© Pratik Karki</copyright>
+		<lastBuildDate>Tue, 31 Dec 2019 00:00:00 +0000</lastBuildDate>
+		<atom:link href="https://prertik.com/categories/index.xml" rel="self" type="application/rss+xml" />
+		<item>
+			<title>nsfw</title>
+			<link>https://prertik.com/categories/nsfw/</link>
+			<pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate>
+			<guid>https://prertik.com/categories/nsfw/</guid>
+			<description>
+			
+			</description>
+		</item>
+		<item>
+			<title>git</title>
+			<link>https://prertik.com/categories/git/</link>
+			<pubDate>Mon, 06 Aug 2018 00:00:00 +0000</pubDate>
+			<guid>https://prertik.com/categories/git/</guid>
+			<description>
+			
+			</description>
+		</item>
+		<item>
+			<title>ewrites</title>
+			<link>https://prertik.com/categories/ewrites/</link>
+			<pubDate>Fri, 22 Jun 2018 00:00:00 +0000</pubDate>
+			<guid>https://prertik.com/categories/ewrites/</guid>
+			<description>
+			
+			</description>
+		</item>
+	</channel>
+</rss>

@@ -1,114 +1,150 @@
 <!DOCTYPE html>
-<html class="nojs" lang="en" dir="ltr">
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-<title>Week 03 and Week 04 Progress – (recur code)</title>
-<meta name="description" content="Hi everyone, Sorry for the late blog. There wasn&#39;t more action on week 03 and there was some action on week 04 *finally*. So, I had to merge both. Oh and a note to the …">
-<meta name="created" content="2018-05-28T00:00:00+0000">
-<meta name="modified" content="2018-05-28T00:00:00+0000">
-
-
-<meta property="og:site_name" content="(recur code)">
-<meta property="og:title" content="Week 03 and Week 04 Progress">
-<meta property="og:url" content="https://prertik.github.io/post/week-03/">
-<meta property="og:type" content="article">
-
-<meta name="generator" content="Hugo 0.62.0" />
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="theme-color" content="#ffffff">
-
-
-<link rel="canonical" href="https://prertik.github.io/post/week-03/">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
-<link rel="stylesheet" href="/css/styles.9a3856451d3f4911845551d6f046455bd8cbf120441071c76e7438ba3ac163e1.css">
-<link rel="stylesheet" href="/css/print.27fc184f8670f41a2690985390779e7b20335a8fadff8fa015cf9417ffe50c36.css" media="print">
-
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "Week 03 and Week 04 Progress",
-    "datePublished": "2018-05-28T00:00:00Z",
-    "dateModified": "2018-05-28T00:00:00Z",
-    "url" : "https://prertik.github.io/post/week-03/",
-    "description": "Hi everyone, Sorry for the late blog. There wasn't more action on week 03 and there was some action on week 04 *finally*. So, I had to merge both. Oh and a note to the …",
-    "keywords": ["git","c","shell"],
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://prertik.github.io"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "(recur code)",
-      "url": "https://prertik.github.io"
-    }
-  }
+<meta charset="UTF-8">
+<title>Week 03 and Week 04 Progress | (recur code)</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.87.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="git, c, shell">
+<meta name="description" content="">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" /><link rel="stylesheet" href="/css/katex.css" crossorigin="anonymous">
+<script defer src="/js/katex.js"  integrity="sha384-PFWG8XW41D5NzhNv5FegM1CUkw9nNLdWug8DuwnUoNEVop9n5frjcnbtsZtxTNjw" crossorigin="anonymous"></script>
+<script defer src="/js/auto-render.js" integrity="sha384-EN2q+JG5/3Z8gD7hT5WZqq+W+9wQR4P3IezfuZmGG5RkNXaaaks85seDJO7WkZlY" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, { delimiters: [ {left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false} ] }); });
 </script>
 
-<script defer src="/js/umbrella.min.b426107371d121c9a56a27aac9e9058ff592a021e2f4c3c94827fe70920d3cbb.js"></script>
-<script defer src="/js/script.min.8e4d91ebe0d9226621e408b7205bd7b009e4935608e4b29c4275116490cc836d.js"></script>
 
 
+
+<meta property="og:title" content="Week 03 and Week 04 Progress" />
+<meta property="og:description" content="Hi everyone,
+Sorry for the late blog. There wasn&rsquo;t more action on week 03 and there was some action on week 04 *finally*. So, I had to merge both.
+Oh and a note to the readers, the previously assured Part II of Git Rebase will take some time as I plan to explain you the workings from the rebase builtin I will create. :-)
+So, during these two weeks, a skeletal for rebase builtin was created." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://prertik.com/post/week-03/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2018-05-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-05-28T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Week 03 and Week 04 Progress"/>
+<meta name="twitter:description" content="Hi everyone,
+Sorry for the late blog. There wasn&rsquo;t more action on week 03 and there was some action on week 04 *finally*. So, I had to merge both.
+Oh and a note to the readers, the previously assured Part II of Git Rebase will take some time as I plan to explain you the workings from the rebase builtin I will create. :-)
+So, during these two weeks, a skeletal for rebase builtin was created."/>
+
+<meta itemprop="name" content="Week 03 and Week 04 Progress">
+<meta itemprop="description" content="Hi everyone,
+Sorry for the late blog. There wasn&rsquo;t more action on week 03 and there was some action on week 04 *finally*. So, I had to merge both.
+Oh and a note to the readers, the previously assured Part II of Git Rebase will take some time as I plan to explain you the workings from the rebase builtin I will create. :-)
+So, during these two weeks, a skeletal for rebase builtin was created."><meta itemprop="datePublished" content="2018-05-28T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-05-28T00:00:00+00:00" />
+<meta itemprop="wordCount" content="282">
+<meta itemprop="keywords" content="git,c,shell," />
 </head>
-
 <body>
-<div class="page layout__page layout__sidebar-second">
-<header class="header layout__header">
-<a href="/" title="Home" rel="home" class="header__logo"><img src="/images/logo.png" alt="Home" class="header__logo-image"></a>
-<h1 class="header__site-name">
-<a href="/" title="Home" class="header__site-link" rel="home"><span>(recur code)</span></a>
-</h1>
-<div class="region header__region">
+<header>
+<div id="titletext">
+<h2 id="title"><a href="https://prertik.com/">(recur code)</a></h2>
 </div>
-</header>
-
-<nav class="main-menu layout__navigation">
-<h2 class="visually-hidden">Main menu</h2>
-<ul class="navbar">
-<li><a class="" href="/">Home</a></li>
-<li><a class="" href="/nsfw/">Nsfws</a></li>
-<li><a class="active" href="/post/">Posts</a></li>
-<li><a class="" href="/about/">Abouts</a></li>
+<div id="title-description">
+<p id="subtitle">Writings on my Findings and Life.</p>
+<div id="social">
+<nav><ul>
+<li><a href="https://twitter.com/theawesomekarki"><i title="Twitter" class="icons fab fa-twitter"></i></a></li>
+<li><a href="https://github.com/prertik"><i title="Github" class="icons fab fa-github"></i></a></li>
+<li><a href="mailto:hello@prertik.com"><i title="Email" class="icons fas fa-envelope"></i></a></li>
+<li><a href="/index.xml"><i title="RSS" class="icons fas fa-rss"></i></a></li>
+<li><a><i title="Switch Dark Mode" class="dark-mode icons fas fa-moon"></i></a></li>
+</ul></nav>
+</div>
+</div>
+<div id="mainmenu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/post">All Posts</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/tags">Tags</a></li>
+<li><a href="/categories">Categories</a></li>
 </ul>
 </nav>
-
-
-<main class="main layout__main">
-<article class="section-post single-view">
-<header>
-<h1 class="title ">Week 03 and Week 04 Progress</h1>
-<div class="tags">
-Tags:
-<ul>
-<li><a href="/tags/git">git</a></li>
-<li><a href="/tags/c">c</a></li>
-<li><a href="/tags/shell">shell</a></li>
-</ul>
 </div>
 </header>
-<div class="content">
+<main>
+<div class="post">
+<article>
+<div class="post-header">
+<div class="meta">
+<div class="date">
+<span class="day">28</span>
+<span class="rest">May 2018</span>
+</div>
+</div>
+<div class="matter">
+<h1 class="title">Week 03 and Week 04 Progress</h1>
+<p class="post-meta">
+<span class="post-meta">
+
+&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
+
+
+ 
+&nbsp;| &nbsp;
+
+<i class="fas fa-book"></i>&nbsp;282&nbsp;words
+
+
+</span>
+
+</p>
+</div>
+</div>
+<div class="markdown">
 <p>Hi everyone,</p>
-<p>Sorry for the late blog. There wasn't more action on week 03 and there was some action on week 04 *finally*. So, I had to merge both.</p>
+<p>Sorry for the late blog. There wasn&rsquo;t more action on week 03 and there was some action on week 04 *finally*. So, I had to merge both.</p>
 <p>Oh and a note to the readers, the previously assured Part II of Git Rebase will take some time as I plan to explain you the workings from the rebase builtin I will create. :-)</p>
-<p>So, during these two weeks, a skeletal for rebase builtin was created. What's a skeletal? Well, it's a placeholder for the future rebase or the builtin rebase which will be the default when it gets there. There were some discussions on it, as can be seen from the initial <a href="https://github.com/git/git/pull/497">pull-request</a>. This is the beauty of open-source. Every awesome developers around the globe are on board to create awesome software to make life more easier. This is what most proprietary software lack. That's why they are buggy and crash while Git runs seamlessly.</p>
-<p>So, after few discussions with the mentors, Christian Couder, Stefan Beller and Johannes Schindelin, we finally agreed to an approach to make rebase into a buitlin proposed by Johannes which is similar to the technique he applied to create difftool to a builtin. You can find the new commit following this approach <a href="https://github.com/git/git/pull/497/commits/41531d0ba88cfe20e870d57ee437d0fcd7d05064">here</a>.</p>
+<p>So, during these two weeks, a skeletal for rebase builtin was created. What&rsquo;s a skeletal? Well, it&rsquo;s a placeholder for the future rebase or the builtin rebase which will be the default when it gets there. There were some discussions on it, as can be seen from the initial <a href="https://github.com/git/git/pull/497" target="_blank">pull-request</a>. This is the beauty of open-source. Every awesome developers around the globe are on board to create awesome software to make life more easier. This is what most proprietary software lack. That&rsquo;s why they are buggy and crash while Git runs seamlessly.</p>
+<p>So, after few discussions with the mentors, Christian Couder, Stefan Beller and Johannes Schindelin, we finally agreed to an approach to make rebase into a buitlin proposed by Johannes which is similar to the technique he applied to create difftool to a builtin. You can find the new commit following this approach <a href="https://github.com/git/git/pull/497/commits/41531d0ba88cfe20e870d57ee437d0fcd7d05064" target="_blank">here</a>.</p>
 <p>This new technique currently falls back to the <code>legacy-rebase</code> which is a fancy term given to the rebase script file currently active. But, offers a configuration to run this builtin <code>rebase.useBuiltin</code> for future testing. There will be some extra functionalities to accommodate with this feature in the coming days, hopefully.</p>
-<p>That's a wrap for this week. More to follow next week and once again I apologize for the lateness for this blog post.</p>
+<p>That&rsquo;s a wrap for this week. More to follow next week and once again I apologize for the lateness for this blog post.</p>
 
-
+</div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Categories</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/categories/git/">git</a>
+</p>
+</div>
+<div class="clearit"></div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Tags</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/tags/c/">c</a>
+<a href="/tags/git/">git</a>
+<a href="/tags/shell/">shell</a>
+</p>
+</div>
+<div class="clearit"></div>
 </div>
 </article>
-</main>
-
-
-<footer class="footer layout__footer">
-<p><span>© (recur code)</span></p>
-
-
-</footer>
-
 </div>
+</main>
+<footer>
+© Pratik Karki
+</footer><script src="/js/dark-mode.js"></script>
+
 </body>
 </html>

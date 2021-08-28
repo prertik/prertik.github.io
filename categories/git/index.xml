@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>git on (recur code)</title>
+		<link>https://prertik.com/categories/git/</link>
+		<description>Recent content in git on prertik.com</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>© Pratik Karki</copyright>
+		<lastBuildDate>Mon, 06 Aug 2018 00:00:00 +0000</lastBuildDate>
+		<atom:link href="https://prertik.com/categories/git/index.xml" rel="self" type="application/rss+xml" />
+		<item>
+			<title>Week 13 - the last week of GSoC Work period!</title>
+			<link>https://prertik.com/post/week-13-the-last-week/</link>
+			<pubDate>Mon, 06 Aug 2018 00:00:00 +0000</pubDate>
+			<guid>https://prertik.com/post/week-13-the-last-week/</guid>
+			<description>
+			
+			</description>
+		</item>
+		<item>
+			<title>Week 11 and Week 12 merge!</title>
+			<link>https://prertik.com/post/week-11/</link>
+			<pubDate>Sat, 21 Jul 2018 00:00:00 +0000</pubDate>
+			<guid>https://prertik.com/post/week-11/</guid>
+			<description>
+			
+			</description>
+		</item>
+		<item>
+			<title>Week 10 Progress</title>
+			<link>https://prertik.com/post/week-10/</link>
+			<pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
+			<guid>https://prertik.com/post/week-10/</guid>
+			<description>
+			
+			</description>
+		</item>
+		<item>
+			<title>Week 09 Progress</title>
+			<link>https://prertik.com/post/week-09/</link>
+			<pubDate>Tue, 03 Jul 2018 00:00:00 +0000</pubDate>
+			<guid>https://prertik.com/post/week-09/</guid>
+			<description>
+			
+			</description>
+		</item>
+		<item>
+			<title>Week 08 Progress</title>
+			<link>https://prertik.com/post/week-08/</link>
+			<pubDate>Mon, 25 Jun 2018 00:00:00 +0000</pubDate>
+			<guid>https://prertik.com/post/week-08/</guid>
+			<description>
+			
+			</description>
+		</item>
+		<item>
+			<title>Week 07 Progress</title>
+			<link>https://prertik.com/post/week-07/</link>
+			<pubDate>Tue, 19 Jun 2018 00:00:00 +0000</pubDate>
+			<guid>https://prertik.com/post/week-07/</guid>
+			<description>
+			
+			</description>
+		</item>
+		<item>
+			<title>Week 06 Progress</title>
+			<link>https://prertik.com/post/week-06/</link>
+			<pubDate>Mon, 11 Jun 2018 00:00:00 +0000</pubDate>
+			<guid>https://prertik.com/post/week-06/</guid>
+			<description>
+			
+			</description>
+		</item>
+		<item>
+			<title>Week 05 Progress</title>
+			<link>https://prertik.com/post/week-05/</link>
+			<pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
+			<guid>https://prertik.com/post/week-05/</guid>
+			<description>
+			
+			</description>
+		</item>
+		<item>
+			<title>Week 03 and Week 04 Progress</title>
+			<link>https://prertik.com/post/week-03/</link>
+			<pubDate>Mon, 28 May 2018 00:00:00 +0000</pubDate>
+			<guid>https://prertik.com/post/week-03/</guid>
+			<description>
+			
+			</description>
+		</item>
+		<item>
+			<title>Git Inside® Part I: Don&#39;t Fear the Rebase</title>
+			<link>https://prertik.com/post/git-inside/</link>
+			<pubDate>Thu, 10 May 2018 00:00:00 +0000</pubDate>
+			<guid>https://prertik.com/post/git-inside/</guid>
+			<description>
+			This is a two part blog. This is Part I of II.
+			</description>
+		</item>
+		<item>
+			<title>Git: An Unexpected Journey</title>
+			<link>https://prertik.com/post/git-an-unexpected-journey/</link>
+			<pubDate>Tue, 01 May 2018 06:00:00 +0000</pubDate>
+			<guid>https://prertik.com/post/git-an-unexpected-journey/</guid>
+			<description>
+			A gentle git introduction
+			</description>
+		</item>
+	</channel>
+</rss>

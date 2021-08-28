@@ -1,195 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>merge on (recur code)</title>
-    <link>https://prertik.github.io/tags/merge/</link>
-    <description>Recent content in merge on (recur code)</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>© Copyright notice</copyright>
-    <lastBuildDate>Thu, 10 May 2018 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://prertik.github.io/tags/merge/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Git Inside® Part I: Don&#39;t Fear the Rebase</title>
-      <link>https://prertik.github.io/post/git-inside/</link>
-      <pubDate>Thu, 10 May 2018 00:00:00 +0000</pubDate>
-      <guid>https://prertik.github.io/post/git-inside/</guid>
-      <description>&lt;p&gt;Ok, you&#39;ve read my previous Git blog. There were nice feedback in the &lt;a href=&#34;https://public-inbox.org/git/CAH5451mJO3Bgg9DST57fqcGGU-SPrcSECjXi0qOqeKsW0uaRzg@mail.gmail.com/&#34;&gt;mailing list&lt;/a&gt; and in emails and IRC. This week I did a close study on &lt;code&gt;git-rebase.&lt;/code&gt;
-There are _a_lot_of_posts_ about &lt;a href=&#34;https://git-scm.com/docs/git-rebase&#34;&gt;&lt;code&gt;git-rebase&lt;/code&gt;&lt;/a&gt; which talk of benefits of rebase and some are negative towards rebase.
-By convention, it is understood that &lt;code&gt;rebase&lt;/code&gt; is harder to understand for beginners that&#39;s why most will prefer merging. Even Github has merging of pull requests by default and to do rebase and merge you&#39;ll have to select it from the drop-down menu in the pull-requests section.&lt;/p&gt;
-&lt;p&gt;Don&#39;t be afraid of rebase and after reading this, think of all the things you could have done if you had known rebase.&lt;/p&gt;
-&lt;p&gt;After understanding the power of rebase and use it to make your branches more cleaner and linear. You will be the cool one.&lt;/p&gt;
-&lt;figure class=&#34;image &#34;&gt;
-&lt;img src=&#34;https://prertik.github.io/static/tenor.gif&#34;  width=&#34;390&#34; height=&#34;292&#34;&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Ok, let&#39;s de-structure &lt;code&gt;git-rebase&lt;/code&gt;. The general idea of rebase is that it is used to reapply commits on top of another base tip.
-Suppose, you&#39;re working in a tech company which has many Engineers and your choice of DVCS is Git. Now, to introduce new features, the developers will work in their own feature branch which has to be merged someday or rebased into the master.&lt;/p&gt;
-&lt;p&gt;Suppose, the structure of the branch is:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;M0---M1---M2 master
-  \
-   \
-    \
-     B1---B2 feature
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now, you&#39;re base branch is M0 and the developers based their feature branch B1 on it. But, since there is always development going on in a tech company. The master branch gradually develops to M1 and M2. While the feature branch also gradually develops to B2. The developers will find certain aspects have changed in the code base and they need to keep up with the master branch.
-Hence they will do,&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git rebase master
-git rebase master feature
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The structure of the branch now changes to:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;M0---M1---M2 master
-           \
-            \
-             \
-              B1&amp;#39;---B2&amp;#39; feature
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now, life goes on, hence, more code is written and branches keep on growing. Assume the structure after some time:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;M0---M1---M2---M3---B3&amp;#39;---M4---M5---M6---M7 master
-           \
-            \
-             \
-              B1&amp;#39;---B2&amp;#39;---B3---B4---B5 feature
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now, again the developers will rebase. But, this time let&#39;s assume feature B3 was crucial for master and was already sent as a patch via mail and it was merged into master. While rebasing it will be automatically skipped.
-The new structure becomes:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;M0---M1---M2---M3---B3&amp;#39;---M4---M5---M6---M7 master
-                                          \
-                                           \
-                                            \
-                                             B1&amp;#39;---B2&amp;#39;---B4&amp;#39;---B5&amp;#39; feature
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;As you can see rebase creates a much more linear structure. This creates a neat and clean patch series which is easy for reviewer to review. The patches sent are all on the current state of master and is optimized for reviewing.&lt;/p&gt;
-&lt;p&gt;If you had to do the same process but merging at each step instead of rebasing i.e. doing repeated merges. The structures would roughly become:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;M0---M1---M2------M3---M4---M5---M6---M7
- \         \       \                   \
-  \         \       \                   \
-   \         \       \                   \
-    B1---B2---C1--B3--C2---B4---B5--------C3
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;C1, C2, C3 denote the merge with additional merge commits that are done for every merge. This is quite difficult for reviewer to check as multiple changes are tested in the master brought by multiple changes. All the changes must be understood by reviewer and hence, must analyze the older version of master to analyze the changes brought by the new branches.&lt;/p&gt;
-&lt;p&gt;The information on merge remain as-is. But, the history of rebase gets omitted in the process. I do not imply that the commits are lost but the useful record which might show how the rebased patches are related to original patches are not present.&lt;/p&gt;
-&lt;p&gt;Another important thing that can be done via rebase is we can transplant a branch based on one branch to another branch. This is done via &lt;code&gt;rebase --onto&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Let&#39;s assume, you&#39;re working on a mobile app project. You have a basic login phase for the app. A team is working on an experimental branch to introduce new cool features. You fork the experimental branch to make login cooler by adding facial recognition login rather than just plain login.
-The structure might look like this:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;o---o---o---o---o---o  master
-     \
-      o---o---o---o---o  experimental
-                       \
-                        o---o---o  facial_recognition
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now, your team working on facial recognition make a breakthrough and the functionality is ready for production but, unluckily many works in experimental branch is still a work in process. So, what do you do in this situation?
-Well, &lt;code&gt;git rebase&lt;/code&gt; has magical voodoo to handle this situation.
-You do&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git rebase --onto master experimental facial_recognition
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If there are no conflicts. This will handle the task perfectly and the structure now looks something like this:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;o---o---o---o---o---o---o  master
-    |                     \
-    |                      o&amp;#39;---o&amp;#39;---o&amp;#39; facial_recognition
-     \
-      o---o---o---o---o  experimental
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This is what you wanted. Cool, right?&lt;/p&gt;
-&lt;p&gt;What if there were conflicts. Well, rebase will stop at first conflicting commit and leave commit markers in the tree. Use &lt;code&gt;git diff&lt;/code&gt; and locate &lt;code&gt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&lt;/code&gt; markers to find the problem.
-After editing the conflicting files do&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git add &amp;lt;filename&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If the conflict is resolved then, do&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git rebase --continue
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To undo the git rebase&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git rebase --abort
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Much more configurations and options are available for rebase. Do checkout the git-rebase &lt;a href=&#34;https://git-scm.com/docs/git-rebase&#34;&gt;docs&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;interactive-rebase&#34;&gt;Interactive rebase&lt;/h2&gt;
-&lt;p&gt;Now, onward to another awesome rebase option &lt;code&gt;rebase  -i&lt;/code&gt; which is generally said as &amp;ldquo;Interactive rebase mode&amp;rdquo;. With interactive mode, you can edit the commits which are rebased, re-order the commits and remove them if unwanted or bad patches.&lt;/p&gt;
-&lt;p&gt;Interactive mode is preferable to use for the following workflow:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;1. you have a wonderful idea
-2. you want to hack the code and you do
-3. prepare a series for submission
-4. submit
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Interactive rebase can be more powerful than automatic rebase in certain scenarios as it can be used to alter commits as they are moved to new branch and offers complete control over the branch&#39;s commit history. It will help to clean up a messy history before merging a feature into master.&lt;/p&gt;
-&lt;p&gt;An example of interactive rebase:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git checkout experimental
-git rebase -i master
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will open the editor of your choice. Mine is Emacs. The editor will show listings of all the commits:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;pick 44d5c7a Message for commit #1
-pick ******* Message for commit #2
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now can you change the pick command or reorder the entries to modify the branch&#39;s history.
-Alternatively, you can merge two commits as a single commit if they portray the same message for similar change. This can be done via&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git commit --fixup &amp;lt;commit&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After saving and closing the file, Git will perform the rebase according to your instructions and you&#39;re the incharge in interactive mode while rebase handles automatically for you. This is a unique feature.&lt;/p&gt;
-&lt;p&gt;You can also split commits using interactive mode. You can add commits or split a commit into two.
-To do this do the following:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Do&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git rebase -i &amp;lt;commit&amp;gt;^
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;where the &lt;code&gt;&amp;lt;commit&amp;gt;&lt;/code&gt; is the commit you want to split.&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;
-&lt;p&gt;Mark the commit with action &amp;ldquo;edit&amp;rdquo;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Execute&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git reset HEAD^
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;Now add changes to the index that you want to have as first commit and do&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git add -i or git gui
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;5&#34;&gt;
-&lt;li&gt;
-&lt;p&gt;Commit the now-current index.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Repeat 4 and 5 until the working tree is clean.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Continue rebase with&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git rebase --continue
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;There is also an important case where you need to recover from upstream rebase. The rebase &lt;a href=&#34;https://git-scm.com/docs/git-rebase#_recovering_from_upstream_rebase&#34;&gt;doc&lt;/a&gt; details nicely and enough for understanding it. Don&#39;t miss it.&lt;/p&gt;
-&lt;p&gt;There are people&#39;s different opinions regarding rebase and merge. People claim one is better than the other. But, rather than claiming superiority of one over another and creating another flame war, we must embrace both as both are very important for varying situations. The amazing thing about Git is it doesn&#39;t force one more over another. It does what the maintainer prefers. So, using one over another is a matter of taste and may be due to certain cases but, claiming never to use one and always use another one because it is better is doing un-justice to the tooling and missing out on a great tool.&lt;/p&gt;
-&lt;p&gt;With that said, let&#39;s look onto the scenarios where you can use Rebase or the cases for using Rebasing.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Never use rebase on public branches.
-Never rebase the master branch onto your feature branch. Since, this will only trigger change in your repository and everyone will be working on original master. You will need to synchronize your master branch with the original one i.e. merge them back together because your master branch history has diverged from everybody else&#39;s. You will need two sets of commits that does the same change to fix and can be very confusing. So, think carefully before running &lt;code&gt;git rebase&lt;/code&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Be careful or omit &lt;code&gt;--force&lt;/code&gt; flag in pushing a rebased master branch into remote repository.
-Only use &lt;code&gt;--force&lt;/code&gt; flag if you know what you&#39;re doing. The conflict messages are there to help you find the errors. One of the only times you might need to force-push is when you&#39;ve performed a local cleanup after you&#39;ve pushed a private feature branch to a remote repository.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;best-cases-for-rebase-use&#34;&gt;Best cases for Rebase use:&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;In a local cleanup. By using interactive rebase and coding you can make sure each commit in your feature is focused and meaningful. Introducing &lt;code&gt;git-rebase&lt;/code&gt; into your workflow affects local branches and other developers only can see your finished product which is clean and has easier to understand branch history. But, this is only applicable for private branches.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Integrating an approved feature. If a new feature is approved by your team, you can rebase the feature onto the tip of the master branch before merging the feature onto the main code. If you rebase before the merge, the merge will be fast-forwarded and will result in a perfectly linear history. This also helps to squash any follow-up commits added during a pull request.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;After making a pull request, you mustn&#39;t do &lt;code&gt;git rebase&lt;/code&gt; as it becomes a public branch for others to review the code. Hence, before submitting the pull request/s, it is better to use interactive rebase to clean up the code.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;There is another important flag &lt;code&gt;-p&lt;/code&gt; or &lt;code&gt;--preserve-merges&lt;/code&gt; which you can use with rebase.&lt;code&gt;--preserve-merges&lt;/code&gt; will recreate merge commits instead of flattening the history. It will replay commits a merge commit introduces. The merge conflict resolutions are not preserved. &lt;code&gt;--preserve-merges&lt;/code&gt; uses &lt;code&gt;--interactive&lt;/code&gt; internally and combining it with &lt;code&gt;--interactive&lt;/code&gt; option while rebasing can trigger a bug present which can produce dubious results when re-ordering the commits. The bug detail can be found &lt;a href=&#34;https://git-scm.com/docs/git-rebase#_bugs&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/dscho&#34;&gt;Johannes Schindelin&lt;/a&gt; has also worked in &lt;code&gt;--recreate-merges&lt;/code&gt; option which is still in review process and in &lt;code&gt;pu&lt;/code&gt; branch in git repository as of now. This option is an alternative to &lt;code&gt;--preserve-merges&lt;/code&gt; and is created to deprecate it. @dscho has written clear detail of the working of &lt;code&gt;--recreate-merges&lt;/code&gt; in the &lt;a href=&#34;https://public-inbox.org/git/71c42d6d3bb240d90071d5afdde81d1293fdf0ab.1516225925.git.johannes.schindelin@gmx.de/&#34;&gt;mailing list&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;All in all both merging and rebasing are equally important. Rebase is an awesome tool we&#39;re lucky to have in our toolbox. Some might complain that they had to bisect through several hundred commits to track down the bug which was introduced due to a faulty rebase. To prevent these problems, one of my mentor during this GSoC, &lt;a href=&#34;https://twitter.com/christiancouder&#34;&gt;Christian Couder&lt;/a&gt; &lt;a href=&#34;http://colabti.org/irclogger/irclogger_log/git-devel?date=2018-05-06&#34;&gt;pointed&lt;/a&gt; out that using &lt;code&gt;git rebase --exec make master&lt;/code&gt; it&#39;s possible to check that each commit from master to the tip of the current branch builds. So, rebase can help people check that rebase did not introduce bugs. He also pointed out that using rebase with &lt;code&gt;--exec&lt;/code&gt;, we can run tests for each commit while using rebase.&lt;/p&gt;
-&lt;p&gt;It&#39;s all about tastes of developers. But, having and using the rebase tool present in our Git toolbox can simplify many tasks and is perfectly suited for certain cases.&lt;/p&gt;
-&lt;p&gt;This post was about the philosophy and general idea behind &amp;ldquo;rebase&amp;rdquo; and the follow-up post will be of breaking down of the current script file of &lt;code&gt;git-rebase.sh&lt;/code&gt; and show how that can be made a built-in.&lt;/p&gt;
-&lt;p&gt;With this my research phase is done and will now start implementing changes. You can find me in &lt;code&gt;# git-devel&lt;/code&gt; as &amp;ldquo;prertik&amp;rdquo;.&lt;/p&gt;
-&lt;p&gt;Shout out to all the awesome developers behind Git.&lt;/p&gt;
-&lt;figure class=&#34;image &#34;&gt;
-&lt;img src=&#34;https://prertik.github.io/static/applause.gif&#34;  width=&#34;300&#34; height=&#34;200&#34;&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Thanks to &lt;a href=&#34;https://twitter.com/christiancouder&#34;&gt;Christian Couder&lt;/a&gt; and &lt;a href=&#34;https://twitter.com/jschindelin&#34;&gt;Johannes Schindelin&lt;/a&gt; for helping me research on git-rebase.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://blog.pa1ch.fr/posts/2018/05/05/en/gsoc2018-week-1.html&#34;&gt;Alban Gruin&lt;/a&gt; is working on converting interactive rebase to C and &lt;a href=&#34;https://ungps.github.io&#34;&gt;Paul-Sebastian Ungureanu&lt;/a&gt; is working on converting &lt;code&gt;git stash&lt;/code&gt; to built-in during this GSoC. Do check out their blogs.&lt;/p&gt;
-&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
-&lt;p&gt;Thanks to Christian for sharing the awesome blogs by &lt;a href=&#34;http://softwareswirl.blogspot.com/2009/08/rebase-with-history-implementation.html&#34;&gt;Michael Haggerty&lt;/a&gt; who is one of the top committer on Git and has written an awesome tool &lt;a href=&#34;http://softwareswirl.blogspot.fr/2013/05/git-imerge-practical-introduction.html&#34;&gt;git-imerge&lt;/a&gt; which introduces some awesome ideas.&lt;/p&gt;
-&lt;p&gt;_a_lot_of_posts_regarding_rebase_:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;(&lt;a href=&#34;https://www.atlassian.com/git/tutorials/merging-vs-rebasing&#34;&gt;https://www.atlassian.com/git/tutorials/merging-vs-rebasing&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;(&lt;a href=&#34;https://medium.com/@fredrikmorken/why-you-should-stop-using-git-rebase-5552bee4fed1&#34;&gt;https://medium.com/@fredrikmorken/why-you-should-stop-using-git-rebase-5552bee4fed1&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;(&lt;a href=&#34;https://nathanleclaire.com/blog/2014/09/14/dont-be-scared-of-git-rebase/&#34;&gt;https://nathanleclaire.com/blog/2014/09/14/dont-be-scared-of-git-rebase/&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;(&lt;a href=&#34;https://www.derekgourlay.com/blog/git-when-to-merge-vs-when-to-rebase/&#34;&gt;https://www.derekgourlay.com/blog/git-when-to-merge-vs-when-to-rebase/&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-  </channel>
+	<channel>
+		<title>merge on (recur code)</title>
+		<link>https://prertik.com/tags/merge/</link>
+		<description>Recent content in merge on prertik.com</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>© Pratik Karki</copyright>
+		<lastBuildDate>Thu, 10 May 2018 00:00:00 +0000</lastBuildDate>
+		<atom:link href="https://prertik.com/tags/merge/index.xml" rel="self" type="application/rss+xml" />
+		<item>
+			<title>Git Inside® Part I: Don&#39;t Fear the Rebase</title>
+			<link>https://prertik.com/post/git-inside/</link>
+			<pubDate>Thu, 10 May 2018 00:00:00 +0000</pubDate>
+			<guid>https://prertik.com/post/git-inside/</guid>
+			<description>
+			This is a two part blog. This is Part I of II.
+			</description>
+		</item>
+	</channel>
 </rss>

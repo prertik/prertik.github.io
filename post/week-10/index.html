@@ -1,115 +1,148 @@
 <!DOCTYPE html>
-<html class="nojs" lang="en" dir="ltr">
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-<title>Week 10 Progress – (recur code)</title>
-<meta name="description" content="Hello from Kathmandu where it has been raining a lot! This week also there were some development on rebase land! Continuing form the past week blog post, I submitted …">
-<meta name="created" content="2018-07-10T00:00:00+0000">
-<meta name="modified" content="2018-07-10T00:00:00+0000">
-
-
-<meta property="og:site_name" content="(recur code)">
-<meta property="og:title" content="Week 10 Progress">
-<meta property="og:url" content="https://prertik.github.io/post/week-10/">
-<meta property="og:type" content="article">
-
-<meta name="generator" content="Hugo 0.62.0" />
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="theme-color" content="#ffffff">
-
-
-<link rel="canonical" href="https://prertik.github.io/post/week-10/">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
-<link rel="stylesheet" href="/css/styles.9a3856451d3f4911845551d6f046455bd8cbf120441071c76e7438ba3ac163e1.css">
-<link rel="stylesheet" href="/css/print.27fc184f8670f41a2690985390779e7b20335a8fadff8fa015cf9417ffe50c36.css" media="print">
-
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "Week 10 Progress",
-    "datePublished": "2018-07-10T00:00:00Z",
-    "dateModified": "2018-07-10T00:00:00Z",
-    "url" : "https://prertik.github.io/post/week-10/",
-    "description": "Hello from Kathmandu where it has been raining a lot! This week also there were some development on rebase land! Continuing form the past week blog post, I submitted …",
-    "keywords": ["git","shell","c"],
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://prertik.github.io"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "(recur code)",
-      "url": "https://prertik.github.io"
-    }
-  }
+<meta charset="UTF-8">
+<title>Week 10 Progress | (recur code)</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.87.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="git, shell, c">
+<meta name="description" content="">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" /><link rel="stylesheet" href="/css/katex.css" crossorigin="anonymous">
+<script defer src="/js/katex.js"  integrity="sha384-PFWG8XW41D5NzhNv5FegM1CUkw9nNLdWug8DuwnUoNEVop9n5frjcnbtsZtxTNjw" crossorigin="anonymous"></script>
+<script defer src="/js/auto-render.js" integrity="sha384-EN2q+JG5/3Z8gD7hT5WZqq+W+9wQR4P3IezfuZmGG5RkNXaaaks85seDJO7WkZlY" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, { delimiters: [ {left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false} ] }); });
 </script>
 
-<script defer src="/js/umbrella.min.b426107371d121c9a56a27aac9e9058ff592a021e2f4c3c94827fe70920d3cbb.js"></script>
-<script defer src="/js/script.min.8e4d91ebe0d9226621e408b7205bd7b009e4935608e4b29c4275116490cc836d.js"></script>
 
 
+
+<meta property="og:title" content="Week 10 Progress" />
+<meta property="og:description" content="Hello from Kathmandu where it has been raining a lot!
+This week also there were some development on rebase land!
+Continuing form the past week blog post, I submitted newer iterations of patch. Well, after some excellent review, the patch seemed to need some important changes, it was merged into pu but a re-roll is expected to fix some issues in it. New iteration of this patch series will take some time to arrive." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://prertik.com/post/week-10/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2018-07-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-07-10T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Week 10 Progress"/>
+<meta name="twitter:description" content="Hello from Kathmandu where it has been raining a lot!
+This week also there were some development on rebase land!
+Continuing form the past week blog post, I submitted newer iterations of patch. Well, after some excellent review, the patch seemed to need some important changes, it was merged into pu but a re-roll is expected to fix some issues in it. New iteration of this patch series will take some time to arrive."/>
+
+<meta itemprop="name" content="Week 10 Progress">
+<meta itemprop="description" content="Hello from Kathmandu where it has been raining a lot!
+This week also there were some development on rebase land!
+Continuing form the past week blog post, I submitted newer iterations of patch. Well, after some excellent review, the patch seemed to need some important changes, it was merged into pu but a re-roll is expected to fix some issues in it. New iteration of this patch series will take some time to arrive."><meta itemprop="datePublished" content="2018-07-10T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-07-10T00:00:00+00:00" />
+<meta itemprop="wordCount" content="169">
+<meta itemprop="keywords" content="git,shell,c," />
 </head>
-
 <body>
-<div class="page layout__page layout__sidebar-second">
-<header class="header layout__header">
-<a href="/" title="Home" rel="home" class="header__logo"><img src="/images/logo.png" alt="Home" class="header__logo-image"></a>
-<h1 class="header__site-name">
-<a href="/" title="Home" class="header__site-link" rel="home"><span>(recur code)</span></a>
-</h1>
-<div class="region header__region">
+<header>
+<div id="titletext">
+<h2 id="title"><a href="https://prertik.com/">(recur code)</a></h2>
 </div>
-</header>
-
-<nav class="main-menu layout__navigation">
-<h2 class="visually-hidden">Main menu</h2>
-<ul class="navbar">
-<li><a class="" href="/">Home</a></li>
-<li><a class="" href="/nsfw/">Nsfws</a></li>
-<li><a class="active" href="/post/">Posts</a></li>
-<li><a class="" href="/about/">Abouts</a></li>
+<div id="title-description">
+<p id="subtitle">Writings on my Findings and Life.</p>
+<div id="social">
+<nav><ul>
+<li><a href="https://twitter.com/theawesomekarki"><i title="Twitter" class="icons fab fa-twitter"></i></a></li>
+<li><a href="https://github.com/prertik"><i title="Github" class="icons fab fa-github"></i></a></li>
+<li><a href="mailto:hello@prertik.com"><i title="Email" class="icons fas fa-envelope"></i></a></li>
+<li><a href="/index.xml"><i title="RSS" class="icons fas fa-rss"></i></a></li>
+<li><a><i title="Switch Dark Mode" class="dark-mode icons fas fa-moon"></i></a></li>
+</ul></nav>
+</div>
+</div>
+<div id="mainmenu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/post">All Posts</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/tags">Tags</a></li>
+<li><a href="/categories">Categories</a></li>
 </ul>
 </nav>
-
-
-<main class="main layout__main">
-<article class="section-post single-view">
-<header>
-<h1 class="title ">Week 10 Progress</h1>
-<div class="tags">
-Tags:
-<ul>
-<li><a href="/tags/git">git</a></li>
-<li><a href="/tags/shell">shell</a></li>
-<li><a href="/tags/c">c</a></li>
-</ul>
 </div>
 </header>
-<div class="content">
+<main>
+<div class="post">
+<article>
+<div class="post-header">
+<div class="meta">
+<div class="date">
+<span class="day">10</span>
+<span class="rest">Jul 2018</span>
+</div>
+</div>
+<div class="matter">
+<h1 class="title">Week 10 Progress</h1>
+<p class="post-meta">
+<span class="post-meta">
+
+&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
+
+
+ 
+&nbsp;| &nbsp;
+
+<i class="fas fa-book"></i>&nbsp;169&nbsp;words
+
+
+</span>
+
+</p>
+</div>
+</div>
+<div class="markdown">
 <p>Hello from Kathmandu where it has been raining a lot!</p>
 <p>This week also there were some development on <code>rebase</code> land!</p>
 <p>Continuing form the past week blog post, I submitted newer iterations of
-<a href="https://public-inbox.org/git/20180708180104.17921-1-predatoramigo@gmail.com/">patch</a>. Well, after some excellent review, the patch seemed to need some important changes, it was merged into <code>pu</code> but a re-roll is expected to fix some issues in <a href="https://public-inbox.org/git/CAPig+cQopjftfSoPHPZQAzECTAUUwZ-pXYMeWEV=VJBFm63t9g@mail.gmail.com/">it</a>. New iteration of this patch series will take some time to arrive.</p>
-<p>There were lots of works done this week to add options to builtin rebase. The tricky script to convert was <a href="https://github.com/prertik/git/blob/ae91dbb2556d7ea9f4e205fbf7847fa8579c64b4/TODO-rebase.sh#L661-L697">this</a> but it was <a href="https://github.com/git/git/pull/505/commits/2837d71846519366c9e7629d827190075e443165">done</a>. Then <code>git rebase &lt;upstream&gt; &lt;switch-to&gt;</code> was <a href="https://github.com/git/git/pull/505/commits/6c0bc8c08064dc37fab6baf57856e9b66eff04a7">implemented</a>. Another cool option <code>--force-rebase</code> was implemented along with <code>--signoff</code>.
+<a href="https://public-inbox.org/git/20180708180104.17921-1-predatoramigo@gmail.com/" target="_blank">patch</a>. Well, after some excellent review, the patch seemed to need some important changes, it was merged into <code>pu</code> but a re-roll is expected to fix some issues in <a href="https://public-inbox.org/git/CAPig&#43;cQopjftfSoPHPZQAzECTAUUwZ-pXYMeWEV=VJBFm63t9g@mail.gmail.com/" target="_blank">it</a>. New iteration of this patch series will take some time to arrive.</p>
+<p>There were lots of works done this week to add options to builtin rebase. The tricky script to convert was <a href="https://github.com/prertik/git/blob/ae91dbb2556d7ea9f4e205fbf7847fa8579c64b4/TODO-rebase.sh#L661-L697" target="_blank">this</a> but it was <a href="https://github.com/git/git/pull/505/commits/2837d71846519366c9e7629d827190075e443165" target="_blank">done</a>. Then <code>git rebase &lt;upstream&gt; &lt;switch-to&gt;</code> was <a href="https://github.com/git/git/pull/505/commits/6c0bc8c08064dc37fab6baf57856e9b66eff04a7" target="_blank">implemented</a>. Another cool option <code>--force-rebase</code> was implemented along with <code>--signoff</code>.
 The options conversion will land into the mailing list in the upcoming weeks along with the new iteration of aforementioned patch.</p>
 <p>So, the plan for the upcoming week is to convert all the options (except the ones requiring other rebase types) and then work on other types of rebase.</p>
-<p>That's all for this week!</p>
+<p>That&rsquo;s all for this week!</p>
 
-
+</div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Categories</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/categories/git/">git</a>
+</p>
+</div>
+<div class="clearit"></div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Tags</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/tags/c/">c</a>
+<a href="/tags/git/">git</a>
+<a href="/tags/shell/">shell</a>
+</p>
+</div>
+<div class="clearit"></div>
 </div>
 </article>
-</main>
-
-
-<footer class="footer layout__footer">
-<p><span>© (recur code)</span></p>
-
-
-</footer>
-
 </div>
+</main>
+<footer>
+© Pratik Karki
+</footer><script src="/js/dark-mode.js"></script>
+
 </body>
 </html>

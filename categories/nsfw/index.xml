@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>nsfw on (recur code)</title>
+		<link>https://prertik.com/categories/nsfw/</link>
+		<description>Recent content in nsfw on prertik.com</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>© Pratik Karki</copyright>
+		<lastBuildDate>Tue, 31 Dec 2019 00:00:00 +0000</lastBuildDate>
+		<atom:link href="https://prertik.com/categories/nsfw/index.xml" rel="self" type="application/rss+xml" />
+		<item>
+			<title>Static Typing on a data-intensive project - Part I</title>
+			<link>https://prertik.com/nsfw/python-static-part-1/</link>
+			<pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate>
+			<guid>https://prertik.com/nsfw/python-static-part-1/</guid>
+			<description>
+			This is a two part blog. This is Part I of II.
+			</description>
+		</item>
+	</channel>
+</rss>

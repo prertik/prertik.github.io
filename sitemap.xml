@@ -1,163 +1,111 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
-    <loc>https://prertik.github.io/</loc>
+    <loc>https://prertik.com/categories/</loc>
     <lastmod>2019-12-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prertik.github.io/nsfw/</loc>
+  </url><url>
+    <loc>https://prertik.com/</loc>
     <lastmod>2019-12-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prertik.github.io/tags/programming/</loc>
+  </url><url>
+    <loc>https://prertik.com/categories/nsfw/</loc>
     <lastmod>2019-12-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prertik.github.io/tags/python/</loc>
+  </url><url>
+    <loc>https://prertik.com/nsfw/</loc>
     <lastmod>2019-12-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prertik.github.io/tags/static/</loc>
+  </url><url>
+    <loc>https://prertik.com/tags/programming/</loc>
     <lastmod>2019-12-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prertik.github.io/nsfw/python-static-part-1/</loc>
+  </url><url>
+    <loc>https://prertik.com/tags/python/</loc>
     <lastmod>2019-12-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prertik.github.io/tags/</loc>
+  </url><url>
+    <loc>https://prertik.com/tags/static/</loc>
     <lastmod>2019-12-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prertik.github.io/tags/typing/</loc>
+  </url><url>
+    <loc>https://prertik.com/nsfw/python-static-part-1/</loc>
     <lastmod>2019-12-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prertik.github.io/tags/c/</loc>
+  </url><url>
+    <loc>https://prertik.com/tags/</loc>
+    <lastmod>2019-12-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://prertik.com/tags/typing/</loc>
+    <lastmod>2019-12-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://prertik.com/tags/c/</loc>
     <lastmod>2018-08-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prertik.github.io/tags/git/</loc>
+  </url><url>
+    <loc>https://prertik.com/tags/git/</loc>
     <lastmod>2018-08-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prertik.github.io/post/</loc>
+  </url><url>
+    <loc>https://prertik.com/categories/git/</loc>
     <lastmod>2018-08-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prertik.github.io/tags/shell/</loc>
+  </url><url>
+    <loc>https://prertik.com/post/</loc>
     <lastmod>2018-08-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prertik.github.io/post/week-13-the-last-week/</loc>
+  </url><url>
+    <loc>https://prertik.com/tags/shell/</loc>
     <lastmod>2018-08-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prertik.github.io/post/week-11/</loc>
+  </url><url>
+    <loc>https://prertik.com/post/week-13-the-last-week/</loc>
+    <lastmod>2018-08-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://prertik.com/post/week-11/</loc>
     <lastmod>2018-07-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prertik.github.io/post/week-10/</loc>
+  </url><url>
+    <loc>https://prertik.com/post/week-10/</loc>
     <lastmod>2018-07-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prertik.github.io/post/week-09/</loc>
+  </url><url>
+    <loc>https://prertik.com/post/week-09/</loc>
     <lastmod>2018-07-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prertik.github.io/post/week-08/</loc>
+  </url><url>
+    <loc>https://prertik.com/post/week-08/</loc>
     <lastmod>2018-06-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prertik.github.io/post/experience/</loc>
+  </url><url>
+    <loc>https://prertik.com/post/experience/</loc>
     <lastmod>2018-06-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prertik.github.io/tags/experience/</loc>
+  </url><url>
+    <loc>https://prertik.com/categories/ewrites/</loc>
     <lastmod>2018-06-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prertik.github.io/tags/learn/</loc>
+  </url><url>
+    <loc>https://prertik.com/tags/experience/</loc>
     <lastmod>2018-06-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prertik.github.io/tags/teach/</loc>
+  </url><url>
+    <loc>https://prertik.com/tags/learn/</loc>
     <lastmod>2018-06-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prertik.github.io/post/week-07/</loc>
+  </url><url>
+    <loc>https://prertik.com/tags/teach/</loc>
+    <lastmod>2018-06-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://prertik.com/post/week-07/</loc>
     <lastmod>2018-06-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prertik.github.io/post/week-06/</loc>
+  </url><url>
+    <loc>https://prertik.com/post/week-06/</loc>
     <lastmod>2018-06-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prertik.github.io/post/week-05/</loc>
+  </url><url>
+    <loc>https://prertik.com/post/week-05/</loc>
     <lastmod>2018-06-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prertik.github.io/post/week-03/</loc>
+  </url><url>
+    <loc>https://prertik.com/post/week-03/</loc>
     <lastmod>2018-05-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prertik.github.io/post/git-inside/</loc>
+  </url><url>
+    <loc>https://prertik.com/post/git-inside/</loc>
     <lastmod>2018-05-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prertik.github.io/tags/merge/</loc>
+  </url><url>
+    <loc>https://prertik.com/tags/merge/</loc>
     <lastmod>2018-05-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prertik.github.io/tags/rebase/</loc>
+  </url><url>
+    <loc>https://prertik.com/tags/rebase/</loc>
     <lastmod>2018-05-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prertik.github.io/post/git-an-unexpected-journey/</loc>
+  </url><url>
+    <loc>https://prertik.com/post/git-an-unexpected-journey/</loc>
     <lastmod>2018-05-01T06:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prertik.github.io/tags/open-source/</loc>
+  </url><url>
+    <loc>https://prertik.com/tags/open-source/</loc>
     <lastmod>2018-05-01T06:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://prertik.com/about/</loc>
+  </url><url>
+    <loc>https://prertik.com/series/</loc>
   </url>
-  
-  <url>
-    <loc>https://prertik.github.io/about/about/</loc>
-  </url>
-  
-  <url>
-    <loc>https://prertik.github.io/about/</loc>
-  </url>
-  
 </urlset>
